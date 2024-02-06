@@ -92,3 +92,97 @@ perfil {
 	receitas integer null
 }
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE cliente (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    data_de_nascimento DATETIME,
+    rg INTEGER UNIQUE,
+    cpf INTEGER UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER UNIQUE,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE medico (
+    id_medico INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cargo INTEGER REFERENCES cargo(id_cargo),
+    nome TEXT,
+    data_de_nascimento DATETIME,
+    crm INTEGER UNIQUE,
+    unidade TEXT UNIQUE,
+    rg TEXT UNIQUE,
+    cpf TEXT UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER UNIQUE,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE consulta (
+    id_consulta INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER REFERENCES cliente(id_cliente),
+    id_medico INTEGER REFERENCES medico(id_medico),
+    data_agendamento DATETIME,
+    data_consulta DATETIME,
+    horario_consulta TEXT,
+    id_especialidade INTEGER REFERENCES especialidade(id_especialidade),
+    id_exame INTEGER REFERENCES exame(id_exame)
+);
+
+CREATE TABLE funcionarios (
+    id_funcionario INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cargo INTEGER REFERENCES cargo(id_cargo),
+    nome_funcionario TEXT,
+    data_de_nascimento DATETIME,
+    unidade TEXT,
+    rg INTEGER UNIQUE,
+    cpf INTEGER UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE especialidade (
+    id_especialidade INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_da_especialidade TEXT UNIQUE
+);
+
+CREATE TABLE cargo (
+    id_cargo INTEGER PRIMARY KEY AUTOINCREMENT,
+    cargo TEXT UNIQUE
+);
+
+CREATE TABLE exame (
+    id_exame INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_exame TEXT UNIQUE
+);
+
+CREATE TABLE perfil (
+    id_perfil INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER REFERENCES cliente(id_cliente),
+    receitas INTEGER
+);
+
