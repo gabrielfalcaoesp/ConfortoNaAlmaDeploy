@@ -1,0 +1,94 @@
+Código SQL (Modelagem Física)
+
+
+cliente {
+	id_cliente numeric(10) pk increments
+	nome varchar(50) null
+	data_de_nascimento datetime null
+	rg numeric(10) unique
+	cpf numeric(12) unique
+	email varchar(100) unique
+	telefone numeric(12) unique
+	cep numeric(9)
+	estado varchar(30)
+	cidade varchar(50)
+	bairro varchar(50)
+	endereco varchar(100)
+	numero numeric(10)
+	senha varchar(30)
+	genero text(20)
+}
+
+medico {
+	id_medico numeric(10) pk increments
+	id_cargo integer *> cargo.id_cargo
+	nome varchar(50) null
+	data_de_nascimento datetime null
+	crm numeric unique
+	unidade varchar(20) unique
+	rg varchar(10) unique
+	cpf varchar(12) unique
+	email varchar(100) unique
+	telefone numeric(12) unique
+	cep numeric(9)
+	estado varchar(30)
+	cidade varchar(50)
+	bairro varchar(50)
+	endereco varchar(100)
+	numero numeric(10)
+	senha varchar(30)
+	genero text(20)
+}
+
+consulta {
+	id_consulta integer pk increments
+	id_cliente integer *> cliente.id_cliente
+	id_medico integer *> medico.id_medico
+	data_agendamento datetime
+	data_consulta datetime
+	horario_consulta varchar
+	id_especialidade integer *> especialidade.id_especialidade
+	id_exame integer *> exame.id_exame
+}
+
+funcionários {
+	id_funcionario integer pk increments
+	id_cargo integer *> cargo.id_cargo
+	nome_funcionario varchar(50)
+	data_de_nascimento datetime
+	unidade varchar(20)
+	rg numeric(10) unique
+	cpf numeric(12) unique
+	email varchar(100) unique
+	telefone numeric(12)
+	cep numeric(9)
+	estado varchar(30)
+	cidade varchar(50)
+	bairro varchar(50)
+	endereco varchar(100)
+	numero numeric(10)
+	senha varchar(30)
+	genero text(10)
+}
+
+especialidade {
+	id_especialidade integer pk increments
+	nome_da_especialidade varchar(20) unique
+}
+
+cargo {
+	id_cargo integer pk increments
+	cargo varchar(20) unique
+}
+
+exame {
+	id_exame integer pk increments
+	nome_exame varchar(20) unique
+}
+
+perfil {
+	id_perfil integer pk increments
+	id_cliente integer >* cliente.id_cliente
+	receitas integer null
+}
+
