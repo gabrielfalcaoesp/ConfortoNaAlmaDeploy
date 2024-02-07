@@ -1,7 +1,9 @@
 Código SQL (Modelagem Física)
 
 
-cliente {
+
+
+Cliente {
 	id_cliente numeric(10) pk increments
 	nome varchar(50) null
 	data_de_nascimento datetime null
@@ -19,9 +21,9 @@ cliente {
 	genero text(20)
 }
 
-medico {
+Medico {
 	id_medico numeric(10) pk increments
-	id_cargo integer *> cargo.id_cargo
+	id_cargo integer *> Cargo.id_cargo
 	nome varchar(50) null
 	data_de_nascimento datetime null
 	crm numeric unique
@@ -40,20 +42,22 @@ medico {
 	genero text(20)
 }
 
-consulta {
-	id_consulta integer pk increments
-	id_cliente integer *> cliente.id_cliente
-	id_medico integer *> medico.id_medico
+Atendimento {
+	id_atendimento integer pk increments
+	id_cliente integer *> Cliente.id_cliente
+	id_medico integer *> Medico.id_medico
 	data_agendamento datetime
-	data_consulta datetime
+	data_agendada datetime
 	horario_consulta varchar
-	id_especialidade integer *> especialidade.id_especialidade
-	id_exame integer *> exame.id_exame
+	prescricao text null
+	resultado integer
+	id_especialidade integer *> Especialidades.id_especialidade
+	id_tipo integer *> Tipo_atendimento.id_tipo
 }
 
-funcionários {
+Funcionários {
 	id_funcionario integer pk increments
-	id_cargo integer *> cargo.id_cargo
+	id_cargo integer *> Cargo.id_cargo
 	nome_funcionario varchar(50)
 	data_de_nascimento datetime
 	unidade varchar(20)
@@ -71,31 +75,36 @@ funcionários {
 	genero text(10)
 }
 
-especialidade {
+Especialidades {
 	id_especialidade integer pk increments
 	nome_da_especialidade varchar(20) unique
 }
 
-cargo {
+Cargo {
 	id_cargo integer pk increments
 	cargo varchar(20) unique
 }
 
-exame {
+Exame {
 	id_exame integer pk increments
 	nome_exame varchar(20) unique
 }
 
-perfil {
-	id_perfil integer pk increments
-	id_cliente integer >* cliente.id_cliente
-	receitas integer null
+Solicitacao_exame {
+	id_solicitacao integer pk increments
+	id_atendimento integer >* Atendimento.id_atendimento
+	id_exame integer >* Exame.id_exame
+}
+
+Tipo_atendimento {
+	id_tipo integer pk increments
+	nome varchar unique
 }
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-CREATE TABLE cliente (
+CREATE TABLE Cliente (
     id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT,
     data_de_nascimento DATETIME,
@@ -113,9 +122,9 @@ CREATE TABLE cliente (
     genero TEXT
 );
 
-CREATE TABLE medico (
+CREATE TABLE Medico (
     id_medico INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_cargo INTEGER REFERENCES cargo(id_cargo),
+    id_cargo INTEGER REFERENCES Cargo(id_cargo),
     nome TEXT,
     data_de_nascimento DATETIME,
     crm INTEGER UNIQUE,
@@ -134,20 +143,22 @@ CREATE TABLE medico (
     genero TEXT
 );
 
-CREATE TABLE consulta (
-    id_consulta INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_cliente INTEGER REFERENCES cliente(id_cliente),
-    id_medico INTEGER REFERENCES medico(id_medico),
+CREATE TABLE Atendimento (
+    id_atendimento INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER REFERENCES Cliente(id_cliente),
+    id_medico INTEGER REFERENCES Medico(id_medico),
     data_agendamento DATETIME,
-    data_consulta DATETIME,
+    data_agendada DATETIME,
     horario_consulta TEXT,
-    id_especialidade INTEGER REFERENCES especialidade(id_especialidade),
-    id_exame INTEGER REFERENCES exame(id_exame)
+    prescricao TEXT,
+    resultado INTEGER,
+    id_especialidade INTEGER REFERENCES Especialidades(id_especialidade),
+    id_tipo INTEGER REFERENCES Tipo_atendimento(id_tipo)
 );
 
-CREATE TABLE funcionarios (
+CREATE TABLE Funcionarios (
     id_funcionario INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_cargo INTEGER REFERENCES cargo(id_cargo),
+    id_cargo INTEGER REFERENCES Cargo(id_cargo),
     nome_funcionario TEXT,
     data_de_nascimento DATETIME,
     unidade TEXT,
@@ -165,24 +176,28 @@ CREATE TABLE funcionarios (
     genero TEXT
 );
 
-CREATE TABLE especialidade (
+CREATE TABLE Especialidades (
     id_especialidade INTEGER PRIMARY KEY AUTOINCREMENT,
     nome_da_especialidade TEXT UNIQUE
 );
 
-CREATE TABLE cargo (
+CREATE TABLE Cargo (
     id_cargo INTEGER PRIMARY KEY AUTOINCREMENT,
     cargo TEXT UNIQUE
 );
 
-CREATE TABLE exame (
+CREATE TABLE Exame (
     id_exame INTEGER PRIMARY KEY AUTOINCREMENT,
     nome_exame TEXT UNIQUE
 );
 
-CREATE TABLE perfil (
-    id_perfil INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_cliente INTEGER REFERENCES cliente(id_cliente),
-    receitas INTEGER
+CREATE TABLE Solicitacao_exame (
+    id_solicitacao INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_atendimento INTEGER REFERENCES Atendimento(id_atendimento),
+    id_exame INTEGER REFERENCES Exame(id_exame)
 );
 
+CREATE TABLE Tipo_atendimento (
+    id_tipo INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT UNIQUE
+);

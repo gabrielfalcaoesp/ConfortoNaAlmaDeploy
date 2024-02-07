@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Aluno 24/Downloads/conforto-na-alma.sql" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2588"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:mainAtendimento"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Cliente (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    data_de_nascimento DATETIME,
+    rg INTEGER UNIQUE,
+    cpf INTEGER UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER UNIQUE,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE Medico (
+    id_medico INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cargo INTEGER REFERENCES Cargo(id_cargo),
+    nome TEXT,
+    data_de_nascimento DATETIME,
+    crm INTEGER UNIQUE,
+    unidade TEXT UNIQUE,
+    rg TEXT UNIQUE,
+    cpf TEXT UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER UNIQUE,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE Atendimento (
+    id_atendimento INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER REFERENCES Cliente(id_cliente),
+    id_medico INTEGER REFERENCES Medico(id_medico),
+    data_agendamento DATETIME,
+    data_agendada DATETIME,
+    horario_consulta TEXT,
+    prescricao TEXT,
+    resultado INTEGER,
+    id_especialidade INTEGER REFERENCES Especialidades(id_especialidade),
+    id_tipo INTEGER REFERENCES Tipo_atendimento(id_tipo)
+);
+
+CREATE TABLE Funcionarios (
+    id_funcionario INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cargo INTEGER REFERENCES Cargo(id_cargo),
+    nome_funcionario TEXT,
+    data_de_nascimento DATETIME,
+    unidade TEXT,
+    rg INTEGER UNIQUE,
+    cpf INTEGER UNIQUE,
+    email TEXT UNIQUE,
+    telefone INTEGER,
+    cep INTEGER,
+    estado TEXT,
+    cidade TEXT,
+    bairro TEXT,
+    endereco TEXT,
+    numero INTEGER,
+    senha TEXT,
+    genero TEXT
+);
+
+CREATE TABLE Especialidades (
+    id_especialidade INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_da_especialidade TEXT UNIQUE
+);
+
+CREATE TABLE Cargo (
+    id_cargo INTEGER PRIMARY KEY AUTOINCREMENT,
+    cargo TEXT UNIQUE
+);
+
+CREATE TABLE Exame (
+    id_exame INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_exame TEXT UNIQUE
+);
+
+CREATE TABLE Solicitacao_exame (
+    id_solicitacao INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_atendimento INTEGER REFERENCES Atendimento(id_atendimento),
+    id_exame INTEGER REFERENCES Exame(id_exame)
+);
+
+CREATE TABLE Tipo_atendimento (
+    id_tipo INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT UNIQUE
+);</sql><current_tab id="0"/></tab_sql></sqlb_project>
