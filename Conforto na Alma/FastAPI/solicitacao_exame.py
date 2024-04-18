@@ -6,3 +6,5 @@ class solicitacao_exame(BaseModel):
     id_solicitacao: int
     id_atendimento: int
     id_exame:int
+
+    app = Fastapi()
