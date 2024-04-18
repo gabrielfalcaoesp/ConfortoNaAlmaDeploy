@@ -20,3 +20,5 @@ class funcionarios(BaseModel):
     numero: str
     senha: str
     genero: str
+
+    app = Fastapi()

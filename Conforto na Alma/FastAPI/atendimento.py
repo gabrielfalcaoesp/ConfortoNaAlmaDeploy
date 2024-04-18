@@ -13,3 +13,5 @@ class atendimento(BaseModel):
     resultado: int
     id_especialidade: int
     id_tipo: int
+
+    app = Fastapi()
