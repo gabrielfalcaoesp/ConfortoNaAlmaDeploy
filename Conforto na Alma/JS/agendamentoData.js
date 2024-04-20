@@ -8,6 +8,9 @@ var amanha = document.getElementById('amanha');
         outraData.style['boxShadow'] = '0px 0px 0px 0px #00ca65';
         depoisAmanha.style['boxShadow'] = '0px 0px 0px 0px #00ca65';
         verificacao = 1;
+        var elementoDataSelecionado = formatarData(obterDataAmanha());
+        console.log(elementoDataSelecionado)
+        salvarValor(elementoDataSelecionado)
     }
   });
 
@@ -18,6 +21,9 @@ var amanha = document.getElementById('amanha');
         outraData.style['boxShadow'] = '0px 0px 0px 0px #00ca65';
         depoisAmanha.style['boxShadow'] = '0px 0px 0px 1.5px #00ca65';
         verificacao = 1;
+        var elementoDataSelecionado = formatarData(obterDataDepoisAmanha());
+        console.log(elementoDataSelecionado)
+        salvarValor(elementoDataSelecionado)
     }
   });
 
@@ -29,13 +35,8 @@ var amanha = document.getElementById('amanha');
         outraData.style['boxShadow'] = '1px 0px 0px 2px #00ca65';
         verificacao = 1;
     }
+    
   });
-
-function redirectToPage() {
-    if (verificacao==1) {  
-    window.location.href = "agendamento_profissional.html";
-    }
-  }
 
 // Função para obter a data de amanhã
    function obterDataAmanha() {
@@ -63,6 +64,24 @@ function obterDataDepoisAmanha() {
 function formatarData(data) {
   var dia = data.getDate();
   return dia;
+}
+
+function salvarDataERedirecionar() {
+  dataArmazenada = localStorage.getItem('dataEscolhida');
+  console.log(dataArmazenada)
+}
+
+  function selecionarData(elemento) {
+    // Obtém o valor da data selecionada
+    var dataSelecionada = elemento.value;
+    // Exibe a data selecionada no console
+    console.log("Data selecionada: " + dataSelecionada);
+    salvarValor(elementoDataSelecionado)
+}
+
+function salvarValor(dataEscolhida){
+  localStorage.setItem('dataEscolhida', dataEscolhida);
+  return dataEscolhida
 }
 
 document.getElementById('dataAmanha').textContent = formatarData(obterDataAmanha());

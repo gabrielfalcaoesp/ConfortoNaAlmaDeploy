@@ -20,6 +20,10 @@ selectElement.addEventListener('change', function() {
 });
 
 function redirectToPage() {
+
+    var especialidade = document.getElementById('especialidadeSelect').value;
+    localStorage.setItem('especialidade', especialidade);
+
     if (verificacao==1) {  
     window.location.href = "agendamento_data.html";
     }
