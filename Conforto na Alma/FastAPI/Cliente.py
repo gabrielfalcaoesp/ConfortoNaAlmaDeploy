@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException, Form
 from pydantic import BaseModel
 import mysql.connector
-
+from fastapi.templating import Jinja2Templates
+from fastapi import Request
 
 db_connection = mysql.connector.connect(
     host="localhost",
@@ -12,6 +13,7 @@ db_connection = mysql.connector.connect(
 db_cursor = db_connection.cursor()
 
 
+#Model 
 class Cliente(BaseModel):
     id_cliente: int
     nome: str
@@ -31,8 +33,10 @@ class Cliente(BaseModel):
 
 
 app = FastAPI()
+#Direcionar a página aonde estão as views (html) e importar biblioteca jinja2
+templates = Jinja2Templates(directory="C:\\Users\\Aluno 25\\Desktop\\CONFORTO NA ALMA FINAL\\Conforto-na-Alma\\Conforto na Alma\\HTML")
 
-
+#Template
 #Read de todos os valores -- Confirmar nome da tabela, se de fato é "Clientes" e confirmar se a rota também ficará como /Clientes 
 @app.get("/Clientes/")
 async def get_clientes():
@@ -54,8 +58,10 @@ async def get_clientes(id_cliente: int):
     return clientes
 
 #Create de Cliente -- Confirmar nome da tabela, se de fato é "Clientes" e confirmar se a rota também ficará como /Clientes 
-@app.post("/Clientes/")
+@app.post("/Clientes/Cadastro")
 async def create_cliente(
+    #Request colocar em primeiro
+    request: Request,
     nome: str = Form(...),
     data_de_nascimento: str = Form(...),
     rg: str = Form(...),
@@ -69,13 +75,14 @@ async def create_cliente(
     endereco: str = Form(...),
     numero: str = Form(...),
     senha: str = Form(...),
-    genero: str = Form(...)
+    genero: str = Form(...),
 ):
     query = "INSERT INTO Clientes (nome, data_de_nascimento, rg, cpf, email, telefone, cep, estado, cidade, bairro, endereco, numero, senha, genero) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     values = (nome, data_de_nascimento, rg, cpf, email, telefone, cep, estado, cidade, bairro, endereco, numero, senha, genero)
     db_cursor.execute(query, values)
     db_connection.commit()
-    return {"message": "Cliente inserido com sucesso"}
+    #direcionar a view desejada utilizando o request
+    return templates.TemplateResponse("clienteCadastrado.html", {"request": request})
 
 #Fazer alteração 
 @app.put("/Clientes/{cliente_id}")
@@ -101,7 +108,23 @@ async def delete_cliente(cliente_id: int):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     return {"message": "Cliente deletado com sucesso"}
 
+@app.post("/Clientes/Login")
+async def login_cliente(
+    email: str = Form(...),
+    senha: str = Form(...)):
+
+    query = "SELECT * FROM Clientes WHERE email = %s AND senha = %s"
+    values = (email, senha)
+    db_cursor.execute(query, values)
+    usuarioExiste = db_cursor.fetchone()
+    db_cursor.close()
+    if usuarioExiste:
+        return {"message": "Cliente encontrado"}
+    else: 
+        return {"message": "Cliente não encontrado"}
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+

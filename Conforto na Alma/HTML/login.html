@@ -50,38 +50,37 @@
             <div class="logo_login">
             <img src="Logo.png"alt="">
             </div>
-        <form>
-            <div class="user-box">
-            <input type="text" name="" required="">
+            <form action="http://127.0.0.1:8000/Clientes/Login" method="POST">
+                <div class="user-box">
+                    <label for="email">Usuário:</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
             
-            <label>Usuário</label>
-            </div>
-            <div class="user-box">
-            <input type="password" name="" required="">
-            <label>Senha</label>
-            </div>
-            <div class="opcoes">
-                <div class ='opcoes1'>
-                    <div class="lembrar">
-                        <input type = "checkbox"><label>Lembrar-me</label>
+                <div class="user-box">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+            
+                <div class="opcoes">
+                    <div class="opcoes1">
+                        <div class="lembrar">
+                            <input type="checkbox" id="lembrar" name="lembrar">
+                            <label for="lembrar">Lembrar-me</label>
+                        </div>
+                        <div class="esqueceu">
+                            <a href="recuperacao.html">Esqueceu a senha?</a>
+                        </div>
                     </div>
-
-                    <div class="esqueceu">
-                    <a href="recuperacao.html">Esqueceu a senha?</a>
+            
+                    <div class="opcoes2">
+                        <a href="cadastro.html">Não possui uma conta? <b>Cadastre-se aqui</b></a>
                     </div>
                 </div>
             
-
-                <div class="opcoes2">
-                    <a href="login.html">Não possui uma conta?<b>Cadastre-se aqui</b>
-                    </a>
+                <div class="entrar">
+                    <button type="submit">Entrar</button>
                 </div>
-            </div>
-
-            <div class="entrar">
-            <a href="#">
-            Entrar
-            </div>
+            </form>
 
             </div>
         </form>
