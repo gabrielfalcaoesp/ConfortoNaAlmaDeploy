@@ -35,12 +35,18 @@
 
         <!-- Adiciona um rótulo e uma caixa de seleção para adicionar o Cargo -->
             <label for="cargo">Cargo</label>
-            <select id="cargo" name="cargo" required>
+            <select id="cargo" name="cargo" required onchange="mostrarCNR()">
             <option value="">Selecione o cargo</option>
             <option value="1">Administrador</option>
             <option value="2">Médico</option>
             <option value="3">Recepcionista</option>
             <input type="text" id="cargo" name="cargo" required><br><br>
+
+        <!-- Adiciona um rótulo e uma caixa de texto para o CNR-->
+            <div id="cnrDiv" style="display: none;">
+                <label for="cnr">CNR:</label>
+                <input type="number" id="cnr" name="cnr" maxlength="8" required><br><br>
+            </div>
     
     
         <!-- Adiciona um rótulo e uma caixa de texto para o e-mail -->
@@ -75,17 +81,22 @@
             <input type="password" id="senha" name="senha" maxlength="20" required>
     
         <!-- Adiciona uma caixa de seleção para adicionar um genero-->
-        <div class="generos">
-            <label>Sexo:</label>
-            <input type="radio" name="sexo" value="masculino"> Masculino
-            <input type="radio" name="sexo" value="feminino"> Feminino
-        </div>
+        
+        <label>Gênero:</label>
+        <select id="genero" name="genero" required>
+            <option value="">Selecione o gênero</option>
+            <option value="2">Feminino</option>
+            <option value="3">Masculino</option>
+        </select>
+        
     
         <!-- Adiciona um botão de envio -->
            
             <input type="submit" value="Confirmar">
             </form>
-    
+            
+    <script src="../JS/cad_funcionario.js"></script>
+
     </body>
     </html>
 </body>
