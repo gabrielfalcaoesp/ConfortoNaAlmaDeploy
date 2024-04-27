@@ -1,0 +1,452 @@
+/* Css do ADM */
+
+body{
+    background-color: #D7FCE4;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.875rem;
+    margin: 0px;
+}
+
+/* Estilo para o cabeçalho da página */
+header {
+    /* Define a cor de fundo como verde */
+    background-color: #64C27B; /* verde */
+
+    /* Define o layout como flexbox e alinha os itens verticalmente */
+    display: flex;
+    align-items: center;
+
+    /* Define a altura do cabeçalho como 80 pixels */
+    height: 6.25rem;
+    margin-bottom: 183px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.navegacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+
+nav {
+    width: 100%;
+    height: 100;
+    text-align: center;
+}
+
+/* Estilo para a lista não ordenada do menu */
+nav ul {
+    /* Remove a estilização padrão da lista */
+    list-style: none;
+}	
+
+/* Estilo para os itens da lista do menu */
+nav li {
+    /* Define o display como inline-block para ficar na mesma linha */
+    display: inline-block;
+
+    /* Define a margem à esquerda como 20 pixels para separar os itens */
+    margin-left: 1.25rem;
+}
+
+/* Estilo para os links do menu */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4375rem;
+    transition: 0.3s linear;
+    letter-spacing: 0;
+    
+}
+
+nav a:hover {
+    letter-spacing: 5px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+    
+.BL{
+width: 25%;
+right: 3.125rem;
+display: flex;
+justify-content: end;
+margin-right: 3.125rem;
+align-items: center;
+height: 100%;
+
+    }
+    
+/* formatação da imagem de botão de login - Tamanho */
+.BL img{	
+margin-top: 0.5625rem;
+width: 90%;
+height: 90%;
+cursor: pointer;
+}
+
+.caixa {
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    top: 100px; /* Posição vertical desejada */
+    right: 300px; /* Posição horizontal desejada */
+    height: 100px;
+    width: 200px;
+    display: none;
+    z-index: 9999;
+
+  }
+  
+  .login-box {
+    width: 25rem;
+    height: 26.5625rem;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .logo_login{
+    display: flex;
+    justify-content: center;
+    height: 10rem;
+    width: 25rem;
+  }
+  
+  .logo_login img {
+    margin-bottom: 1.25rem;
+  }
+  
+  .login-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-box form .user-box {
+    position: relative;
+    margin-bottom: 1.25rem;
+  }
+  
+  .login-box form .user-box input {
+    width: 100%;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: #333;
+    border: none;
+    border-bottom: 0.125rem solid #666;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box form .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    color: #666;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .login-box form .user-box input:focus ~ label,
+  .login-box form .user-box input:valid ~ label {
+    top: -0.75rem;
+    font-size: 0.875rem;
+    color: #000;
+  }
+
+  .opcoes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 75px;
+  }
+
+  .opcoes1{
+    width: 50%;
+    height: 75px;
+  }
+
+  .opcoes2{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 50%;
+    height: 75px;
+  }
+
+  .lembrar label{
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .esqueceu a{
+    margin-left: 0.1875rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .opcoes2 a{
+    margin-top: 0px;
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    text-align: end;
+  }
+  
+  .login-box form .entrar a {
+    width: 21.875rem;
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 0.625rem 1.25rem;
+    margin-top: 1rem;
+    border-radius: 0.3125rem;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  
+  .login-box form .entrar a:hover {
+    background: #fff;
+    color: #333;
+    border: 0.0625rem solid #333;
+  }
+  .login-box form .entrar a span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0.0625rem;
+    background: #333;
+    transform: scale(0);
+    transition: 0.5s;
+  }
+  
+  .login-box form .entrar a span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+
+  footer{
+    background-color: #64C27B;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    }
+            
+    .contato img {
+     margin-left: 1.5rem;
+    height: 120px;
+     }
+
+footer .info{
+text-align: center;
+font-size: 0.8125rem;
+color: #fff;
+}
+		
+.fdp img{
+margin-right: 1.5rem;
+height: 120px;
+}
+    
+
+/* ___________________________________________________FIM DO CABEÇALHO___________________________________________________ */
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-pacientes{
+    width: 1064px;
+    height: 426px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 183px auto; 
+    margin-top: 0px;
+    background-color: #64C27B;
+}
+
+.titulo{
+    display: flex;
+    width: 99.6%;
+    height: 71px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px;
+    border-bottom: 0px;
+}
+
+.listas{
+    display: flex;
+    width: 99.6%;
+    height: 356px;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px;
+    background-color: #B1FACA;
+    flex-direction: row;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+}
+
+.lista1{
+    display: flex;
+    height: 100%;
+    width: 265.93px;
+    flex-direction: column;
+}
+
+.lista2{
+    display: flex;
+    height: 100%;
+    width: 265.93px;
+    border-left: solid 2px;
+    flex-direction: column;
+}
+
+.lista3{
+    display: flex;
+    height: 100%;
+    width: 265.93px;
+    border-left: solid 2px;
+    flex-direction: column;
+}
+
+.lista4{
+    display: flex;
+    height: 100%;
+    width: 265.93px;
+    border-left: solid 2px;
+    flex-direction: column;
+}
+
+.paciente1{
+    display: flex;
+    justify-content: center;
+    height: 71px;
+    align-items: center;
+}
+
+.paciente2{
+    display: flex;
+    justify-content: center;
+    height: 71px;
+    border-top: solid 2px;
+    align-items: center;
+}
+
+.paciente3{
+    display: flex;
+    justify-content: center;
+    height: 71px;
+    border-top: solid 2px;
+    align-items: center;
+}
+
+.paciente4{
+    display: flex;
+    justify-content: center;
+    height: 71px;
+    border-top: solid 2px;
+    align-items: center;
+}
+
+.paciente5{
+    display: flex;
+    justify-content: center;
+    height: 71px;
+    border-top: solid 2px;
+    align-items: center;
+}
+
+.above{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    display: flex;
+    width: 1064px;
+    margin: 183px auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.pesquisa{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 0px auto;
+    flex-direction: column-reverse;
+}
+
+.search-container{
+  width: 490px;
+  display: block;
+  margin: 0 auto;
+}
+
+input#search-bar{
+  margin: 0 auto;
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+  &:focus{
+    border: 1px solid #000000;
+    transition: 0.35s ease;
+    color: #000000;
+    &::-webkit-input-placeholder{
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &:-ms-placeholder {
+     transition: opacity 0.45s ease; 
+  	 opacity: 0;
+     }    
+   }
+ }
+
+ .search-icon {
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px;
+  margin-bottom: -62px;
+  bottom: 60px;
+  right: -45px;
+}
+
+
+

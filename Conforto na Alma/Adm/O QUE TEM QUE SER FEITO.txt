@@ -1,0 +1,14 @@
+Cabeçalho - Adicionar link "EXAMES" e atualizar CABEÇALHO em todas as páginas
+Rodapé - Ok
+Home - Ok
+Especialidades - Adicionar botão de agendamento em cada página de especialidade (hipertrofia, geral, materna, etc)
+Sobre - Ok
+Unidades - Ok 
+Agendamentos - linkar as páginas em sequencia e arrumar botão 
+Exames - Criar página
+botão login - arrumar para ficar certo em todas as páginas e adicionar link para tela de cadastro
+Esqueceu a senha - Ok
+Cadastre-se - Ok 
+tela de deslogar - criar página 
+
+******TODAS AS PÁGINAS ESTÃO SEM CSS, BASTA APENAS ENTRAR NO ARQUIVO HTML E COLOCAR O CSS CERTO*****
