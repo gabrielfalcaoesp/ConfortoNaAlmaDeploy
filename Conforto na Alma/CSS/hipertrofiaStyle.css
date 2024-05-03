@@ -29,7 +29,7 @@
 
 body{
     background-color: #B1FACA;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.875rem;
     margin: 0px;
     height: 50rem;
@@ -343,6 +343,7 @@ main h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 div a{

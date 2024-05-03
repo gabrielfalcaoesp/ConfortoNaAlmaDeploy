@@ -6,6 +6,7 @@ body{
   justify-content: center;
   flex-direction: column;
     background-color: #D7FCE4;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .botoes{

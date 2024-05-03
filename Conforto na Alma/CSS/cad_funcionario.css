@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 /* Estilo para o corpo da página */
 
 /* Estilo para o corpo da página */
     body {
     margin: 0;
-    font-family: Nunito-ExtraLight;
+    font-family: 'Montserrat', sans-serif;
     justify-content: center;
     }
 
