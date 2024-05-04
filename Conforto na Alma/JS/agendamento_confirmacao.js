@@ -1,33 +1,63 @@
 
-    // Verifica se há um nome armazenado no localStorage
     var nomeArmazenado = localStorage.getItem('unidade');
 
     if (nomeArmazenado) {
-        // Se houver, exibe o nome na página
         document.getElementById('unidadeSalva').innerText = nomeArmazenado;
     } else {
-        // Caso contrário, exibe uma mensagem padrão
         document.getElementById('unidadeSalva').innerText = 'Nenhum nome foi salvo.';
     }
 
-       // Verifica se há uuma especilade armazenado no localStorage
-       var especialidadeArmazenado = localStorage.getItem('especialidade');
+
+    var especialidadeArmazenado = localStorage.getItem('especialidade');
 
        if (especialidadeArmazenado) {
-           // Se houver, exibe o nome na página
            document.getElementById('especialidadeSalva').innerText = especialidadeArmazenado;
        } else {
-           // Caso contrário, exibe uma mensagem padrão
            document.getElementById('especialidadeSalva').innerText = 'Nenhum nome foi salvo.';
        }
 
-    // Recupera a data selecionada do localStorage
-    var dataSelecionada = localStorage.getItem("dataSelecionada");
+
+    var dataSelecionada = localStorage.getItem("dataEscolhida");
 
     if (dataSelecionada) {
-        // Se houver, exibe o nome na página
-        document.getElementById('dataSalva').innerText = dataSelecionada;
+        exibirData(dataSelecionada);
     } else {
-        // Caso contrário, exibe uma mensagem padrão
         document.getElementById('dataSalva').innerText = 'Nenhum nome foi salvo.';
+    }
+
+
+    var profissionalSelecionado = localStorage.getItem("nomeMedico");
+
+    if (profissionalSelecionado) {
+        document.getElementById('nomeProfissionalSalvo').innerText = profissionalSelecionado;
+    } else {
+        document.getElementById('nomeProfissionalSalvo').innerText = 'Nenhum nome foi salvo.';
+    }
+
+
+    var horaSelecionada = localStorage.getItem("horarioSelecionado");
+
+    if (horaSelecionada) {
+        document.getElementById('horaSalva').innerText = horaSelecionada;
+    } else {
+        document.getElementById('horaSalva').innerText = 'Nenhum nome foi salvo.';
+    }
+
+
+    function exibirData(dataSelecionada) {
+        var partesData = dataSelecionada.split('-');
+        if (partesData.length === 1) {
+            var hoje = new Date();
+            var dia = parseInt(partesData[0], 10);
+            hoje.setDate(dia);
+            var ano = hoje.getFullYear();
+            var mes = hoje.getMonth() + 1; 
+            dataSelecionada = `${dia < 10 ? '0' + dia : dia}-${mes < 10 ? '0' + mes : mes}-${ano}`;
+        } else {
+            var dia = parseInt(partesData[2], 10);
+            var mes = parseInt(partesData[1], 10);
+            var ano = parseInt(partesData[0], 10);
+            dataSelecionada = `${dia < 10 ? '0' + dia : dia}-${mes < 10 ? '0' + mes : mes}-${ano}`;
+        }
+        document.getElementById('dataSalva').innerText = dataSelecionada;
     }
