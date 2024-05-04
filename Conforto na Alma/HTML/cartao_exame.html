@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento com cartão de crédito</title>
+    <link rel="stylesheet" href="../CSS/cartao_exame.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <article class="part card-details">
+                <h1>
+                    Cartão de crédito
+                </h1>
+                <form action="" if="cc-form" autocomplete="off">
+                    <div class="group card-number">
+                        <label for="first">Número do cartão</label>
+                        <input type="text" id="first" class="cc-num" type="text" maxlength="4" placeholder="&#9679;&#9679;&#9679;&#9679;">
+                        <input type="text" id="second" class="cc-num" type="text" maxlength="4" placeholder="&#9679;&#9679;&#9679;&#9679;">
+                        <input type="text" id="third" class="cc-num" type="text" maxlength="4" placeholder="&#9679;&#9679;&#9679;&#9679;">
+                        <input type="text" id="fourth" class="cc-num" type="text" maxlength="4" placeholder="&#9679;&#9679;&#9679;&#9679;">
+                    </div>
+                    <div class="group card-name">
+                        <label for="name">Nome no cartão</label>
+                        <input type="text" id="name" class="" type="text" maxlength="20" placeholder="Nome no cartão">
+                    </div>
+                    <div class="group card-expiry">
+                        <div class="input-item expiry">
+                            <label for="expiry">Data de expiração</label>
+                            <input type="text" class="month" id="expiry" placeholder="02">
+                            <input type="text" class="year" id="" placeholder="2017">
+                        </div>
+                        <div class="input-item csv">
+                            <label for="csv">CSV</label><a href="#what">?</a>
+                            <input type="text" class="csv">
+                        </div>
+                    </div>
+                    <div class="grup submit-group">
+                        <span class="arrow"></span>
+                        <input type="submit" class="submit" value="Confirmar pagamento">
+                    </div>
+                </form>
+            </article>
+            <div class="part bg"></div>
+        </div>
+    </div>
+
+      <script src="../JS/pagamento_cartao.js"></script>
+
+</body>
+</html>
