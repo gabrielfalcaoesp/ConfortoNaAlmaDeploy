@@ -311,6 +311,8 @@ body{
     width: 5rem;
     height: 5rem;
     transform: rotate(90deg);
+    cursor: pointer;
+    
 }
 
 .containerPagamento{
@@ -335,5 +337,38 @@ body{
     transform: scale(1.35); 
 }
 
+.dataSelecionada {display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 50px;
+    width: 50%;
+    height: 50%;
+    font-family: 'Nunito2', sans-serif;
+    font-size: 18px;}
 
+.horaSelecionada {display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 50px;
+    width: 50%;
+    height: 50%;
+    font-family: 'Nunito2', sans-serif;
+    font-size: 18px;}
 
+.selecaoLocalizacao {display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 50px;
+    width: 50%;
+    height: 50%;
+    font-family: 'Nunito2', sans-serif;
+    font-size: 18px;}
+
+.especialidade {display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 50px;
+    width: 50%;
+    height: 50%;
+    font-family: 'Nunito2', sans-serif;
+    font-size: 18px;}
