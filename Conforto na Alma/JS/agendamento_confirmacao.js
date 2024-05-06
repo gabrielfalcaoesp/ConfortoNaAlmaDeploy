@@ -61,3 +61,27 @@
         }
         document.getElementById('dataSalva').innerText = dataSelecionada;
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const botaoAvancar = document.querySelector('.botaoAvancar');
+        const formaPagamento = document.querySelector('.formaPagamento');
+
+        botaoAvancar.addEventListener('click', function () {
+            // Verifica qual opção de pagamento está selecionada
+            const pixSelecionado = document.getElementById('pix').checked;
+            const cartaoSelecionado = document.getElementById('cartao').checked;
+            const pagamentoConsultaSelecionado = document.getElementById('pagamento-consulta').checked;
+
+            // Redireciona para a página correspondente
+            if (pixSelecionado) {
+                window.location.href = 'pagamento_pix.html';
+            } else if (cartaoSelecionado) {
+                window.location.href = 'pagamento_cartao.html';
+            } else if (pagamentoConsultaSelecionado) {
+                window.location.href = 'clienteAgendado.html';
+            } else {
+                // Tratamento para quando nenhuma opção é selecionada
+                alert('Selecione uma opção de pagamento.');
+            }
+        });
+    });
