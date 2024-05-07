@@ -43,7 +43,7 @@ var amanha = document.getElementById('amanha');
     var hoje = new Date();
     var amanha = new Date(hoje);
     amanha.setDate(hoje.getDate() + 1);
-    return amanha;
+    return amanha
 }
 
 // Função para formatar a data no formato desejado (dd)
@@ -60,23 +60,21 @@ function obterDataDepoisAmanha() {
   return depois_amanha;
 }
 
-// Função para formatar a data no formato desejado (dd)
-function formatarData(data) {
-  var dia = data.getDate();
-  return dia;
-}
 
 function salvarDataERedirecionar() {
   dataArmazenada = localStorage.getItem('dataEscolhida');
   console.log(dataArmazenada)
+
+  if (dataArmazenada!== null) {  
+    window.location.href = "exame_profissional.html";
+    }
+
 }
 
   function selecionarData(elemento) {
-    // Obtém o valor da data selecionada
     var dataSelecionada = elemento.value;
-    // Exibe a data selecionada no console
     console.log("Data selecionada: " + dataSelecionada);
-    salvarValor(elementoDataSelecionado)
+    salvarValor(dataSelecionada)
 }
 
 function salvarValor(dataEscolhida){
