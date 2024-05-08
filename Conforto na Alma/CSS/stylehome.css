@@ -201,7 +201,7 @@ cursor: pointer;
   text-align: end;
 }
 
-.login-box form .entrar a {
+.login-box form .entrar button {
   width: 21.875rem;
   display: inline-block;
   background: #333;
@@ -213,12 +213,12 @@ cursor: pointer;
   transition: 0.5s;
 }
 
-.login-box form .entrar a:hover {
+.login-box form .entrar button:hover {
   background: #fff;
   color: #333;
   border: 0.0625rem solid #333;
 }
-.login-box form .entrar a span {
+.login-box form .entrar button span {
   position: absolute;
   display: block;
   width: 100%;
@@ -228,7 +228,7 @@ cursor: pointer;
   transition: 0.5s;
 }
 
-.login-box form .entrar a span:nth-child(1) {
+.login-box form .entrar button span:nth-child(1) {
   top: 0;
   left: 0;
 }

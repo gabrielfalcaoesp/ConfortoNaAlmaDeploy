@@ -3,17 +3,22 @@ from pydantic import BaseModel
 import mysql.connector
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
+from fastapi.staticfiles import StaticFiles
+
+
+
+
 
 db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password="1234",
-    database="Clinica" #Confirmar nome da database depois 
+    database="conforto_na_alma" 
 )
 db_cursor = db_connection.cursor()
 
+boolLogado = False
 
-#Model 
 class Cliente(BaseModel):
     id_cliente: int
     nome: str
@@ -33,11 +38,10 @@ class Cliente(BaseModel):
 
 
 app = FastAPI()
-#Direcionar a página aonde estão as views (html) e importar biblioteca jinja2
-templates = Jinja2Templates(directory="C:\\Users\\Aluno 25\\Desktop\\CONFORTO NA ALMA FINAL\\Conforto-na-Alma\\Conforto na Alma\\HTML")
+templates = Jinja2Templates(directory="C:\\Users\\sn1089002\\Desktop\\Conforto-na-Alma\\Conforto na Alma\\HTML")
 
-#Template
-#Read de todos os valores -- Confirmar nome da tabela, se de fato é "Clientes" e confirmar se a rota também ficará como /Clientes 
+
+
 @app.get("/Clientes/")
 async def get_clientes():
     query = "SELECT * FROM Clientes"
@@ -46,7 +50,6 @@ async def get_clientes():
     return clientes
 
 
-#Read de 1 único os valor -- Confirmar nome da tabela, se de fato é "Clientes" e confirmar se a rota também ficará como /Clientes 
 @app.get("/Clientes/{id_cliente}")
 async def get_clientes(id_cliente: int):
     query = "SELECT * FROM Clientes WHERE ID = %s"
@@ -57,10 +60,9 @@ async def get_clientes(id_cliente: int):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     return clientes
 
-#Create de Cliente -- Confirmar nome da tabela, se de fato é "Clientes" e confirmar se a rota também ficará como /Clientes 
+
 @app.post("/Clientes/Cadastro")
 async def create_cliente(
-    #Request colocar em primeiro
     request: Request,
     nome: str = Form(...),
     data_de_nascimento: str = Form(...),
@@ -81,23 +83,20 @@ async def create_cliente(
     values = (nome, data_de_nascimento, rg, cpf, email, telefone, cep, estado, cidade, bairro, endereco, numero, senha, genero)
     db_cursor.execute(query, values)
     db_connection.commit()
-    #direcionar a view desejada utilizando o request
     return templates.TemplateResponse("clienteCadastrado.html", {"request": request})
 
-#Fazer alteração 
+
 @app.put("/Clientes/{cliente_id}")
 async def update_cliente(cliente_id: int, updated_cliente: Cliente):
     query = "UPDATE Clientes SET nome = %s, data_de_nascimento = %s, rg = %s, cpf = %s, email = %s, telefone = %s, cep = %s, estado = %s, cidade = %s, bairro = %s, endereco = %s, numero = %s, senha = %s, genero = %s WHERE ID = %s"
     values = (updated_cliente.nome, updated_cliente.data_de_nascimento, updated_cliente.rg, updated_cliente.cpf, updated_cliente.email, updated_cliente.telefone, updated_cliente.cep, updated_cliente.estado, updated_cliente.cidade, updated_cliente.bairro, updated_cliente.endereco, updated_cliente.numero, updated_cliente.senha, updated_cliente.genero, cliente_id)
     db_cursor.execute(query, values)
-    # Verificar se algum registro foi atualizado
     if db_cursor.rowcount == 0:
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     db_connection.commit()
     return {"message": "Item atualizado com sucesso"}
     
 
-#Fazer alteração 
 @app.delete("/Clientes/{cliente_id}")
 async def delete_cliente(cliente_id: int):
     query = "DELETE FROM Clientes WHERE id_cliente = %s"
@@ -110,6 +109,7 @@ async def delete_cliente(cliente_id: int):
 
 @app.post("/Clientes/Login")
 async def login_cliente(
+    request: Request,
     email: str = Form(...),
     senha: str = Form(...)):
 
@@ -119,7 +119,10 @@ async def login_cliente(
     usuarioExiste = db_cursor.fetchone()
     db_cursor.close()
     if usuarioExiste:
+        global boolLogado
+        boolLogado = True
         return {"message": "Cliente encontrado"}
+        
     else: 
         return {"message": "Cliente não encontrado"}
 

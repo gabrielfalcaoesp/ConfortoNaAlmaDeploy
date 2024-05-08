@@ -58,14 +58,14 @@
                 <div class="logo_login">
                     <img src="../Imagens/logo.png"alt="">
                 </div>
-                <form>
+                <form action="http://127.0.0.1:8000/Clientes/Login" method="POST">
                     <div class="user-box">
-                        <input type="text" name="" required="">
-                        <label>Usuário</label>
+                        <input type="text" required="" id="email" name="email">
+                        <label for="email">Usuário</label>
                     </div>
                     <div class="user-box">
-                        <input type="password" name="" required="">
-                        <label>Senha</label>
+                        <input type="password" required="" id="senha" name="senha">
+                        <label for="senha">Senha</label>
                     </div>
                     <div class="opcoes">
                         <div class ='opcoes1'>
@@ -85,7 +85,7 @@
                     </div>
     
                     <div class="entrar">
-                    <a href="#">Entrar</a>
+                    <button type="submit">Entrar</button>
                     
                     </div>
                 </form>
@@ -97,6 +97,15 @@
             <img src="../Imagens/logo.png">
            </div>
         </div>
+
+
+        <div class="caixa2" style="display: none;">
+            <!-- Conteúdo do segundo modal (caixa2) -->
+            <h2>Parabéns! Você está logado.</h2>
+            <p>Bem-vindo à sua conta.</p>
+        </div>
+
+
 
         <div class = "front2">
             <div class="front2-img">
