@@ -4,6 +4,7 @@ import mysql.connector
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
@@ -38,7 +39,17 @@ class Cliente(BaseModel):
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="C:\\Users\\sn1089002\\Desktop\\Conforto-na-Alma\\Conforto na Alma\\HTML")
+templates = Jinja2Templates(directory="../HTML")
+app.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
+app.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
+app.mount("/JS", StaticFiles(directory="../JS"), name="JS")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir solicitações de qualquer origem
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],  # Permitir métodos HTTP
+    allow_headers=["*"],  # Permitir cabeçalhos personalizados
+)
 
 
 
@@ -121,10 +132,15 @@ async def login_cliente(
     if usuarioExiste:
         global boolLogado
         boolLogado = True
-        return {"message": "Cliente encontrado"}
+        return templates.TemplateResponse("index.html", {"request": request, "boolLogado": boolLogado})
         
     else: 
         return {"message": "Cliente não encontrado"}
+    
+@app.get("/verificarLogin")
+async def verificarLogin():
+    global boolLogado
+    return boolLogado
 
 if __name__ == "__main__":
     import uvicorn

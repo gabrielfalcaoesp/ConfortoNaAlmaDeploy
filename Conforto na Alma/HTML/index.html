@@ -40,7 +40,10 @@
 
      <!-- <--inicio da classe "BL" que significa "botao de login"-->
         <div class="BL">
+
+
             <a onclick="exibirLogin()"> 
+                <div id="boolLogado" data-boollogado="{{ boolLogado }}"></div>
                 <img src="../Imagens/botao_login.png" alt="">
             </a> 
         </div>  
@@ -100,7 +103,6 @@
 
 
         <div class="caixa2" style="display: none;">
-            <!-- Conteúdo do segundo modal (caixa2) -->
             <h2>Parabéns! Você está logado.</h2>
             <p>Bem-vindo à sua conta.</p>
         </div>
@@ -165,6 +167,8 @@
             <img src="../Imagens/formas_de_pagamento.png"alt="">
             </div>
      </footer>
+
+
 
      <script src="../JS/home_js.js"></script>
 </body>
