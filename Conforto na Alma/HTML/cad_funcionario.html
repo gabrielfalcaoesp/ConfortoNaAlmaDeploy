@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro funcinário</title>
+    <title>Cadastro funcionário</title>
     <link rel="stylesheet" href="../CSS/cad_funcionario.css">
 </head>
 <body>
@@ -33,16 +33,15 @@
             <label for="cpf">CPF</label>
             <input type="number" id="cpf" name="cpf" required><br><br>
 
-        <!-- Adiciona um rótulo e uma caixa de seleção para adicionar o Cargo -->
             <label for="cargo">Cargo</label>
             <select id="cargo" name="cargo" required onchange="mostrarCNR()">
-            <option value="">Selecione o cargo</option>
-            <option value="1">Administrador</option>
-            <option value="2">Médico</option>
-            <option value="3">Recepcionista</option>
-            <input type="text" id="cargo" name="cargo" required><br><br>
-
-        <!-- Adiciona um rótulo e uma caixa de texto para o CNR-->
+                <option value="">Selecione o cargo</option>
+                <option value="1">Administrador</option>
+                <option value="2">Médico</option>
+                <option value="3">Recepcionista</option>
+            </select>
+            
+            <!-- Adiciona um rótulo e uma caixa de texto para o CNR-->
             <div id="cnrDiv" style="display: none;">
                 <label for="cnr">CNR:</label>
                 <input type="number" id="cnr" name="cnr" maxlength="8" required><br><br>
@@ -59,26 +58,42 @@
     
         <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
     
-            <label for="cep">CEP:</label>
-            <input type="number" id="cep" name="cep" maxlength="8" required><br><br>
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" maxlength="8" required>
+        <button onclick="buscarEndereco()">Buscar</button><br><br>
     
-         <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
+    <!-- Adiciona um rótulo e uma caixa de texto para o estado-->
          
-            <label for="endereço">Endereço:</label>
-            <input type="text" id="endereço" name="endereço" required><br><br>
+         <label for="endereco">UF</label>
+         <input type="text" id="uf" name="uf" readonly><br><br>         
+
+         <!-- Adiciona um rótulo e uma caixa de texto para a cidade-->
+         
+         <label for="endereco">Cidade</label>
+         <input type="text" id="cidade" name="cidade" readonly><br><br>
+
+         <!-- Adiciona um rótulo e uma caixa de texto para o bairro-->
+         
+         <label for="endereco">Bairro</label>
+         <input type="text" id="bairro" name="bairro" readonly><br><br>
+         
+         <!-- Adiciona um rótulo e uma caixa de texto para o endereço-->
+         
+         <label for="endereco">Logradouro:</label>
+         <input type="text" id="endereco" name="endereco" readonly><br><br>         
     
         <!-- Adiciona um rótulo e uma caixa de texto para o Número-->
     
-            <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero" maxlength="8" required><br><br>
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero" maxlength="8" required><br><br>
     
          <!-- Adiciona um rótulo e uma caixa de texto para a senha e confirmação-->
     
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" maxlength="20" required>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" maxlength="20" required>
     
-            <label for="senha">Confirme sua senha:</label>
-            <input type="password" id="senha" name="senha" maxlength="20" required>
+        <label for="senha">Confirme sua senha:</label>
+        <input type="password" id="senha" name="senha" maxlength="20" required>
     
         <!-- Adiciona uma caixa de seleção para adicionar um genero-->
         
@@ -92,6 +107,8 @@
     
         <!-- Adiciona um botão de envio -->
            
+        <form action="funcionarioCadastrado.html" method="post">
+            <!-- Seus campos de formulário aqui -->
             <input type="submit" value="Confirmar">
             </form>
             

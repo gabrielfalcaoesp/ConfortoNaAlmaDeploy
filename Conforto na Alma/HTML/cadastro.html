@@ -38,35 +38,36 @@
         <label for="telefone">Telefone:</label>
         <input type="tel" id="telefone" name="telefone" required><br><br>
 
-    <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
-
-        <label for="cep">CEP:</label>
-        <input type="number" id="cep" name="cep" maxlength="8" required><br><br>
-
-        <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
-     
-        <label for="estado">Estado:</label>
-        <input type="text" id="estado" name="estado" required><br><br>
-
-        <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
-     
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" required><br><br>
-
-        <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
-     
-        <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" name="bairro" required><br><br>
-
-     <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
-     
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" required><br><br>
-
-    <!-- Adiciona um rótulo e uma caixa de texto para o Número-->
-
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" maxlength="8" required><br><br>
+            <!-- Adiciona um rótulo e uma caixa de texto para o CEP-->
+    
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" maxlength="8" required>
+            <button onclick="buscarEndereco()">Buscar</button><br><br>
+        
+        <!-- Adiciona um rótulo e uma caixa de texto para o estado-->
+             
+             <label for="endereco">UF</label>
+             <input type="text" id="uf" name="uf" readonly><br><br>         
+    
+             <!-- Adiciona um rótulo e uma caixa de texto para a cidade-->
+             
+             <label for="endereco">Cidade</label>
+             <input type="text" id="cidade" name="cidade" readonly><br><br>
+    
+             <!-- Adiciona um rótulo e uma caixa de texto para o bairro-->
+             
+             <label for="endereco">Bairro</label>
+             <input type="text" id="bairro" name="bairro" readonly><br><br>
+             
+             <!-- Adiciona um rótulo e uma caixa de texto para o endereço-->
+             
+             <label for="endereco">Logradouro:</label>
+             <input type="text" id="endereco" name="endereco" readonly><br><br>         
+        
+            <!-- Adiciona um rótulo e uma caixa de texto para o Número-->
+        
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" maxlength="8" required><br><br>
 
      <!-- Adiciona um rótulo e uma caixa de texto para a senha e confirmação-->
 
@@ -77,16 +78,19 @@
         <input type="password" id="senha" name="senha" maxlength="20" required>
 
     <!-- Adiciona uma caixa de seleção para adicionar um genero-->
-    <div class="generos">
-        <label>Sexo:</label>
-        <input type="radio" name="genero" value="masculino"> Masculino
-        <input type="radio" name="genero" value="feminino"> Feminino
-    </div>
+    <label>Gênero:</label>
+    <select id="genero" name="genero" required>
+        <option value="">Selecione o gênero</option>
+        <option value="2">Feminino</option>
+        <option value="3">Masculino</option>
+    </select>
 
-    <!-- Adiciona um botão de envio -->
-       
+    <form action="clienteCadastrado.html" method="post">
+        <!-- Seus campos de formulário aqui -->
         <input type="submit" value="Confirmar">
         </form>
+
+        <script src="../JS/cadastro.js"></script>
 
 </body>
 </html>
