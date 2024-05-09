@@ -25,6 +25,6 @@ function redirectToPage() {
     localStorage.setItem('especialidade', especialidade);
 
     if (verificacao==1) {  
-    window.location.href = "agendamento_data.html";
+    window.location.href = "/Agendamento/Data";
     }
   }

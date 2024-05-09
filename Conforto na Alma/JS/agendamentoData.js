@@ -66,7 +66,7 @@ function salvarDataERedirecionar() {
   console.log(dataArmazenada)
 
   if (dataArmazenada!== null) {  
-    window.location.href = "agendamento_profissional.html";
+    window.location.href = "/Agendamento/Profissional";
     }
 
 }

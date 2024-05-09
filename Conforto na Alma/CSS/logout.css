@@ -97,7 +97,7 @@ height: 90%;
 }
 
   
-  .caixa {
+  .caixa2{
     display: flex;
     justify-content: end;
     min-height: 100vh;
@@ -130,77 +130,6 @@ height: 90%;
     align-items: center;
   }
   
-  .login-box form .user-box {
-    position: relative;
-    margin-bottom: 1.25rem;
-  }
-  
-  .login-box form .user-box input {
-    width: 100%;
-    padding: 0.625rem 0;
-    font-size: 1rem;
-    color: #333;
-    border: none;
-    border-bottom: 0.125rem solid #666;
-    outline: none;
-    background: transparent;
-  }
-  
-  .login-box form .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 1rem;
-    color: #666;
-    pointer-events: none;
-    transition: 0.5s;
-  }
-  
-  .login-box form .user-box input:focus ~ label,
-  .login-box form .user-box input:valid ~ label {
-    top: -0.75rem;
-    font-size: 0.875rem;
-    color: #000;
-  }
-
-  .opcoes{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 75px;
-  }
-
-  .opcoes1{
-    width: 50%;
-    height: 75px;
-  }
-
-  .opcoes2{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 50%;
-    height: 75px;
-  }
-
-  .lembrar label{
-    font-size: 1rem;
-    color: #333;
-  }
-
-  .esqueceu a{
-    margin-left: 0.1875rem;
-    font-size: 1rem;
-    color: #333;
-  }
-
-  .opcoes2 a{
-    margin-top: 0px;
-    font-size: 1rem;
-    color: #333;
-    text-decoration: none;
-    text-align: end;
-  }
   
   .login-box form .sair button {
     width: 21.875rem;

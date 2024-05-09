@@ -23,8 +23,7 @@ function redirectToPage() {
     var unidade = document.getElementById('unidadeSelect').value;
     localStorage.setItem('unidade', unidade);
 
-    if (verificacao==1) {  
-    window.location.href = "agendamento_especialidade.html";
+    if (verificacao == 1) {  
+        window.location.href = "/Agendamento/Especialidade";
     }
-    
-  }
+}
