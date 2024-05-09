@@ -196,10 +196,10 @@ body {
   border-bottom: 1px solid #d9d9d9;
 }
 .wrapper .container form .card-number:first-of-type {
-  margin-top: 32px;
+  margin-top: 50px;
 }
 .wrapper .container form .card-number input {
-  width: 43px;
+  width: 50px;
   border-bottom: 0;
 }
 .wrapper .container form .card-number.focused {
