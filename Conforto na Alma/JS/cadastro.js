@@ -5,7 +5,7 @@ function buscarEndereco() {
             .then(response => response.json())
             .then(data => {
                 if (!data.erro) {
-                    document.getElementById("uf").value = data.uf;
+                    document.getElementById("estado").value = data.uf;
                     document.getElementById("cidade").value = data.localidade;
                     document.getElementById("bairro").value = data.bairro;
                     document.getElementById("endereco").value = data.logradouro;
