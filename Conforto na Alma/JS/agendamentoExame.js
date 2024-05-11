@@ -25,6 +25,6 @@ function redirectToPage() {
     localStorage.setItem('exame', especialidade);
 
     if (verificacao==1) {  
-    window.location.href = "data_exame.html";
+    window.location.href = "/Exame/Data/";
     }
   }

@@ -27,8 +27,8 @@ CREATE TABLE `agendamento_consulta` (
   `ID_CLIENTE` int DEFAULT NULL,
   `ID_MEDICO` int DEFAULT NULL,
   `TIPO_CONSULTA` varchar(100) DEFAULT NULL,
-  `DATA_AGENDADA` date DEFAULT NULL,
-  `DATA_AGENDAMENTO` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `DATA_AGENDADA` varchar(20) DEFAULT NULL,
+  `DATA_AGENDAMENTO` varchar(20) DEFAULT NULL,
   `HORARIO_CONSULTA` time DEFAULT NULL,
   `UNIDADE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID_AGENDAMENTO_CONSULTA`),
@@ -36,7 +36,7 @@ CREATE TABLE `agendamento_consulta` (
   KEY `ID_MEDICO` (`ID_MEDICO`),
   CONSTRAINT `agendamento_consulta_ibfk_1` FOREIGN KEY (`ID_CLIENTE`) REFERENCES `cliente` (`id_cliente`),
   CONSTRAINT `agendamento_consulta_ibfk_2` FOREIGN KEY (`ID_MEDICO`) REFERENCES `medico` (`id_medico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `agendamento_consulta` (
 
 LOCK TABLES `agendamento_consulta` WRITE;
 /*!40000 ALTER TABLE `agendamento_consulta` DISABLE KEYS */;
+INSERT INTO `agendamento_consulta` VALUES (2,1,1,'Nutrição clínica','2024-05-19','2024-05-10','14:00:00','Anália Franco'),(3,1,1,'Nutrição clínica','2024-05-30','2024-05-10','15:00:00','Anália Franco');
 /*!40000 ALTER TABLE `agendamento_consulta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +110,7 @@ CREATE TABLE `cliente` (
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telefone` (`telefone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,6 +119,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Gabriel','2000-01-13','1234567','12345678901','gabriel@email.com','123456789',12345,'SP','São Paulo','Centro','Rua Exemplo, 123',10,'senha123','Masculino'),(2,'Victor','2024-05-09','0001','0002','victor@teste.com.br','11949491538',8420730,'SP','São Paulo','Jardim São Pedro','Rua General Moreira Couto',792,'senha1234','3'),(3,'Alvaro','2024-05-14','02','03','alvaro@teste.com.br','11949491537',8420730,'SP','São Paulo','Jardim São Pedro','Rua General Moreira Couto',349,'senha','3');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +195,7 @@ CREATE TABLE `medico` (
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telefone` (`telefone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,6 +204,7 @@ CREATE TABLE `medico` (
 
 LOCK TABLES `medico` WRITE;
 /*!40000 ALTER TABLE `medico` DISABLE KEYS */;
+INSERT INTO `medico` VALUES (1,'Maicon Douglas','1980-05-15','12345','Hospital X','1234567','12345678901','maicon@example.com','123456789',12345,'SP','São Paulo','Centro','Rua A',123,'senha123','Masculino');
 /*!40000 ALTER TABLE `medico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-08 21:07:40
+-- Dump completed on 2024-05-10 21:30:05

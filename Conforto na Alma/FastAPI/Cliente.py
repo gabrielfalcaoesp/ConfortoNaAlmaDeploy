@@ -44,6 +44,10 @@ templates = Jinja2Templates(directory="../HTML")
 
 
 
+@router.get("/cadastro/")
+async def get_cadastro(request: Request):
+    return templates.TemplateResponse("cadastro.html", {"request": request})
+
 @router.get("/Clientes/")
 async def get_clientes():
     query = "SELECT * FROM Cliente"
