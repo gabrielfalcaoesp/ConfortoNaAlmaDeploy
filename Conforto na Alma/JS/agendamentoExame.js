@@ -24,6 +24,7 @@ function redirectToPage() {
     var especialidade = document.getElementById('exameSelect').value;
     localStorage.setItem('exame', especialidade);
 
+
     if (verificacao==1) {  
     window.location.href = "/Exame/Data/";
     }

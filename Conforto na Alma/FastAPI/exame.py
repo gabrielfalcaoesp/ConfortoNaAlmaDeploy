@@ -41,13 +41,13 @@ async def get_agendamentos(request: Request):
 async def get_data(request: Request):
     return templates.TemplateResponse("data_exame.html", {"request": request})
 
-@router_exame.get("/Exame/Profissional")
+@router_exame.get("/Exame/Profissional/")
 async def get_profissional(request: Request):
-    return templates.TemplateResponse("agendamento_profissional.html", {"request": request})
+    return templates.TemplateResponse("exame_profissional.html", {"request": request})
 
 @router_exame.get("/Exame/Confirmacao")
 async def get_profissional(request: Request):
-    return templates.TemplateResponse("agendamento_confirmacao.html", {"request": request})
+    return templates.TemplateResponse("exame_confirmacao.html", {"request": request})
 
 
 @router_exame.get("/Exame/pagamento/{metodo_pagamento}")

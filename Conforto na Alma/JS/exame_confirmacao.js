@@ -1,4 +1,4 @@
-var nomeArmazenado = localStorage.getItem('unidade');
+var nomeArmazenado = 'Anália Franco';
 
 if (nomeArmazenado) {
     document.getElementById('unidadeSalva').innerText = nomeArmazenado;
@@ -7,7 +7,7 @@ if (nomeArmazenado) {
 }
 
 
-var especialidadeArmazenado = localStorage.getItem('especialidade');
+var especialidadeArmazenado = localStorage.getItem('exame');
 
    if (especialidadeArmazenado) {
        document.getElementById('especialidadeSalva').innerText = especialidadeArmazenado;

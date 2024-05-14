@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from Cliente import router as cliente_router
 from consulta import router_consulta as consulta_router
 from exame import router_exame as router_exame
+from medico import router_medico as router_medico
 
 db_connection = mysql.connector.connect(
     host="localhost",
@@ -37,6 +38,7 @@ app.add_middleware(
 app.include_router(cliente_router)
 app.include_router(consulta_router)
 app.include_router(router_exame)
+app.include_router(router_medico)
 
 @app.get("/")
 async def read_index( request: Request,):

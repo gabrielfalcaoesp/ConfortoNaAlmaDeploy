@@ -66,7 +66,8 @@ function salvarDataERedirecionar() {
   console.log(dataArmazenada)
 
   if (dataArmazenada!== null) {  
-    window.location.href = "exame_profissional.html";
+    console.log("chamou a função salvarDataERedirecionar")
+    window.location.href = "/Exame/Profissional/"
     }
 
 }
