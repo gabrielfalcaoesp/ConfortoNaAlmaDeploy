@@ -716,7 +716,7 @@ height: 120px;
 }
 
 .blocoAgendado{
-    margin-left: 350px;
+    margin-left: 315px;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     background-color: #E74646;
@@ -730,7 +730,7 @@ height: 120px;
 }
 
 .blocoAguardando{
-    margin-left: 170px;
+    margin-left: 125px;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     background-color: #FDA237;
@@ -778,7 +778,7 @@ height: 120px;
 }
 
 .blocoConclusao{
-    margin-left: 350px;
+    margin-left: 315px;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     background-color: #67FC4F;
