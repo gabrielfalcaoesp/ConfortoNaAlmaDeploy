@@ -1,118 +1,77 @@
-/* CSS */
-
-@font-face{
-    font-family: 'Montserrat-Bold';
-    src: url(/font/Montserrat-Bold.ttf) format('opentrue'),
-     url(/font/Montserrat-Bold.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+body{
+    background-color: #B1FACA;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.875rem;
+    margin: 0px;
 }
 
-@font-face{
-    font-family: 'Nunito-ExtraLight';
-    src: url(/font/Nunito-ExtraLight.ttf) format('opentrue'),
-     url(/font/Nunito-ExtraLight.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2.5rem;
-}
-
-@font-face{
-    font-family: 'Nunito-Regular';
-    src: url(/font/Nunito-Regular.ttf) format('opentrue'),
-     url(/font/Nunito-Regular.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2.5rem;
-}
-
-@font-face{
-    font-family: 'Nunito-Bold';
-    src: url(/font/Nunito-Bold.ttf) format('opentrue'),
-     url(/font/Nunito-Bold.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2.5rem;
-}
-
-@media screen and (min-width: 41.6875rem) {
-
-    body{
-        background-color: #E1FDEB;
-    }
-
-    /* Estilo para o cabeçalho da página */
 header {
-    /* Define a cor de fundo como verde */
-    background-color: #64C27B; /* verde */
-
-    /* Define o layout como flexbox e alinha os itens verticalmente */
-    display: flex;
-    align-items: center;
-
-    /* Define a altura do cabeçalho como 80 pixels */
-    height: 6.25rem;
+  background-color: #64C27B; 
+  display: flex;
+  align-items: center;
+  height: 6.25rem;
 }
 
 .logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 25%;
 }
 
 .logo img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .navegacao{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
 }
 
 
 nav {
-    width: 100%;
-    height: 100;
-    text-align: center;
+  width: 100%;
+  height: 100;
+  text-align: center;
 }
 
 /* Estilo para a lista não ordenada do menu */
 nav ul {
-    /* Remove a estilização padrão da lista */
-    list-style: none;
+  /* Remove a estilização padrão da lista */
+  list-style: none;
 }	
 
 /* Estilo para os itens da lista do menu */
 nav li {
-    /* Define o display como inline-block para ficar na mesma linha */
-    display: inline-block;
+  /* Define o display como inline-block para ficar na mesma linha */
+  display: inline-block;
 
-    /* Define a margem à esquerda como 20 pixels para separar os itens */
-    margin-left: 1.25rem;
+  /* Define a margem à esquerda como 20 pixels para separar os itens */
+  margin-left: 1.25rem;
 }
 
 /* Estilo para os links do menu */
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.4375rem;
-    transition: 0.3s linear;
-    letter-spacing: 0;
-    
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4375rem;
+  transition: 0.3s linear;
+  letter-spacing: 0;
+  
 }
 
 nav a:hover {
-    letter-spacing: 5px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+  letter-spacing: 5px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
-    
+  
 .BL{
 width: 25%;
 right: 3.125rem;
@@ -122,8 +81,8 @@ margin-right: 3.125rem;
 align-items: center;
 height: 100%;
 
-    }
-    
+  }
+  
 /* formatação da imagem de botão de login - Tamanho */
 .BL img{	
 margin-top: 0.5625rem;
@@ -133,147 +92,217 @@ cursor: pointer;
 }
 
 .caixa {
-    display: flex;
-    justify-content: end;
-    position: fixed;
-    top: 100px; /* Posição vertical desejada */
-    right: 300px; /* Posição horizontal desejada */
-    height: 100px;
-    width: 200px;
-    display: none;
-    z-index: 9999;
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  top: 100px; /* Posição vertical desejada */
+  right: 300px; /* Posição horizontal desejada */
+  height: 100px;
+  width: 200px;
+  display: none;
+  z-index: 9999;
+}
 
-  }
-  
-  .login-box {
-    width: 25rem;
-    height: 26.5625rem;
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 0.625rem;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  }
+.login-box {
+  width: 25rem;
+  height: 26.5625rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .logo_login{
-    display: flex;
-    justify-content: center;
-    height: 10rem;
-    width: 25rem;
-  }
-  
-  .logo_login img {
-    margin-bottom: 1.25rem;
-  }
-  
-  .login-box form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .login-box form .user-box {
-    position: relative;
-    margin-bottom: 1.25rem;
-  }
-  
-  .login-box form .user-box input {
-    width: 100%;
-    padding: 0.625rem 0;
-    font-size: 1rem;
-    color: #333;
-    border: none;
-    border-bottom: 0.125rem solid #666;
-    outline: none;
-    background: transparent;
-  }
-  
-  .login-box form .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 1rem;
-    color: #666;
-    pointer-events: none;
-    transition: 0.5s;
-  }
-  
-  .login-box form .user-box input:focus ~ label,
-  .login-box form .user-box input:valid ~ label {
-    top: -0.75rem;
-    font-size: 0.875rem;
-    color: #000;
-  }
+.logo_login{
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  width: 25rem;
+}
 
-  .opcoes{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 75px;
-  }
+.logo_login img {
+  margin-bottom: 1.25rem;
+}
 
-  .opcoes1{
-    width: 50%;
-    height: 75px;
-  }
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
 
-  .opcoes2{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 50%;
-    height: 75px;
-  }
+.login-box form .user-box {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
 
-  .lembrar label{
-    font-size: 1rem;
-    color: #333;
-  }
+.login-box form .user-box input {
+  width: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #333;
+  border: none;
+  border-bottom: 0.125rem solid #666;
+  outline: none;
+  background: transparent;
+}
 
-  .esqueceu a{
-    margin-left: 0.1875rem;
-    font-size: 1rem;
-    color: #333;
-  }
+.login-box form .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;
+  transition: 0.5s;
+}
 
-  .opcoes2 a{
-    margin-top: 0px;
-    font-size: 1rem;
-    color: #333;
-    text-decoration: none;
-    text-align: end;
-  }
-  
-  .login-box form .entrar a {
-    width: 21.875rem;
-    display: inline-block;
-    background: #333;
-    color: #fff;
-    padding: 0.625rem 1.25rem;
-    margin-top: 1rem;
-    border-radius: 0.3125rem;
-    text-decoration: none;
-    transition: 0.5s;
-  }
-  
-  .login-box form .entrar a:hover {
-    background: #fff;
-    color: #333;
-    border: 0.0625rem solid #333;
-  }
-  .login-box form .entrar a span {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 0.0625rem;
-    background: #333;
-    transform: scale(0);
-    transition: 0.5s;
-  }
-  
-  .login-box form .entrar a span:nth-child(1) {
-    top: 0;
-    left: 0;
-  }
+.login-box form .user-box input:focus ~ label,
+.login-box form .user-box input:valid ~ label {
+  top: -0.75rem;
+  font-size: 0.875rem;
+  color: #000;
+}
 
+.opcoes{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 75px;
+}
+
+.opcoes1{
+  width: 50%;
+  height: 75px;
+}
+
+.opcoes2{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+  height: 75px;
+}
+
+.lembrar label{
+  font-size: 1rem;
+  color: #333;
+}
+
+.esqueceu a{
+  margin-left: 0.1875rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.opcoes2 a{
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  text-align: end;
+}
+
+.login-box form .entrar button {
+  width: 21.875rem;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: 0.3125rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login-box form .entrar button:hover {
+  background: #fff;
+  color: #333;
+  border: 0.0625rem solid #333;
+}
+.login-box form .entrar button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.0625rem;
+  background: #333;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.login-box form .entrar button span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.caixa2{
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  top: 100px; /* Posição vertical desejada */
+  right: 200px; /* Posição horizontal desejada */
+  height: 100px;
+  width: 200px;
+  display: none;
+  z-index: 9999;
+}
+
+.login-box2 {
+  width: 20rem;
+  height: 14.5625rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logado h2{
+font-size: 2rem;
+}
+
+.logo_login{
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  width: 25rem;
+}
+
+.login-box2 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-box2 form .sair button {
+  width: 21.875rem;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: 0.3125rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login-box2 form .sair button:hover {
+  background: #fff;
+  color: #333;
+  border: 0.0625rem solid #333;
+}
+.login-box2 form .sair button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.0625rem;
+  background: #333;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.login-box2 form .sair button span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
 
   footer{
     background-color: #64C27B;
@@ -325,13 +354,13 @@ height: 120px;
 
 /* Classe para o nome do cliente*/
 .nome{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 3.125rem;
 }
 
 /*Div para os dados do cliente*/
 .elementos{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.875rem;
 }
 
@@ -349,12 +378,12 @@ height: 120px;
 
 /*Tabela para a data de nascimento*/
 .data{
-    text-align: end;
+    text-align: initial;
 }
 
 /*Div para o status do cliente*/
 .status{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.875rem;
     list-style: none;
 }
@@ -397,7 +426,7 @@ height: 120px;
 }
 
 .dadocad h4{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     text-align: center;
 }
@@ -419,7 +448,7 @@ height: 120px;
 }
 
 .receitas h4{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     text-align: center;
     display: flex;
@@ -444,7 +473,7 @@ height: 120px;
 }
 
 .agendados h4{
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     text-align: center;
     display: flex;
@@ -470,7 +499,7 @@ height: 120px;
 }
 
 .historico h4 {
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     text-align: center;
     display: flex;
@@ -508,23 +537,44 @@ height: 120px;
 
 #mail{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#mailValue {    
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
 #tel{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
+}
+
+#telValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #cep{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
+}
+
+#cepValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #end{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
+}
+
+#endValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .button-6{
@@ -537,7 +587,7 @@ height: 120px;
     color: rgba(0, 0, 0, 0.85);
     cursor: pointer;
     display: inline-flex;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 600;
     justify-content: center;
@@ -576,12 +626,12 @@ height: 120px;
 
 #altura{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
 }
 
 #numero{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .receitastab{
@@ -595,13 +645,13 @@ height: 120px;
 
 .requisitadas{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
 .desc{
     font-size: 25px;
-    font-family: 'Nunito-Regular';
+    font-family: 'Montserrat', sans-serif;
     text-align: left;
     margin-left: 100px;
     margin-right: 100px;
@@ -626,14 +676,14 @@ height: 120px;
 
 #agendados-tittle{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-top: 5px;
 }
 
 .tab-container-2{
     font-size: 25px;
-    font-family: 'Nunito-Regular';
+    font-family: 'Montserrat', sans-serif;
     width: 853px;
     height: 324px;
     border-bottom-left-radius: 35px;
@@ -668,7 +718,7 @@ height: 120px;
 .blocoAgendado{
     margin-left: 350px;
     font-size: 17px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     background-color: #E74646;
     display: flex;
     align-items: center;
@@ -682,7 +732,7 @@ height: 120px;
 .blocoAguardando{
     margin-left: 170px;
     font-size: 17px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     background-color: #FDA237;
     display: flex;
     align-items: center;
@@ -696,7 +746,7 @@ height: 120px;
 .blocoAguardeAcao{
     margin-left: 178px;
     font-size: 17px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     background-color: #FDA237;
     display: flex;
     align-items: center;
@@ -722,7 +772,7 @@ height: 120px;
 
 #historico-tittle{
     font-size: 25px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-top: 5px;
 }
@@ -730,7 +780,7 @@ height: 120px;
 .blocoConclusao{
     margin-left: 350px;
     font-size: 17px;
-    font-family: 'Nunito-Bold';
+    font-family: 'Montserrat', sans-serif;
     background-color: #67FC4F;
     display: flex;
     align-items: center;
@@ -742,3 +792,85 @@ height: 120px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
 }
 
+/* ___________________________________________________INICIO RODAPÉ___________________________________________________ */
+footer{
+    background-color: #64C27B;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    }
+            
+    .contato img {
+     margin-left: 1.5rem;
+    height: 120px;
+     }
+
+footer .info2{
+text-align: center;
+font-size: 0.8125rem;
+color: #fff;
+}
+		
+.fdp img{
+margin-right: 1.5rem;
+height: 120px;
+}
+
+/* ___________________________________________________FIM RODAPÉ___________________________________________________ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 320) and (max-width: 769px)
+{
+	body{
+		background-color: #B1FACA;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-size: 1.875rem;
+		margin: 0px;
+	}
+
+	header {
+		/* Define a cor de fundo como verde */
+		background-color: #64C27B; /* verde */
+	
+		/* Define o layout como flexbox e alinha os itens verticalmente */
+		display: flex;
+		align-items: center;
+	
+		/* Define a altura do cabeçalho como 80 pixels */
+		height: 6.25rem;
+	}
+
+	.logo img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1.25rem;
+		height: 6.25rem;
+	}
+
+    nav{
+        display: none;
+    }
+
+    .BL{
+        display: none;
+    }
+}
