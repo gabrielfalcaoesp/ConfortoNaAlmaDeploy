@@ -69,4 +69,3 @@ async def enviar_agendamento(request: Request, consulta: Exame):
     db_cursor.execute(query, values)
     db_connection.commit()
     return templates.TemplateResponse("index.html", {"request": request})
-

@@ -23,7 +23,7 @@
     
             <!-- Adiciona um rótulo e uma caixa de texto com calendário para a data de nascimento -->
             <label for="data_nascimento">Data de nascimento:</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
+            <input type="date" id="data_nascimento" name="data_de_nascimento" required><br><br>
     
             <!-- Adiciona um rótulo e uma caixa de texto para adicionar o RG/RNE -->
             <label for="rg">RG/RNE</label>
@@ -44,8 +44,13 @@
             <!-- Adiciona um rótulo e uma caixa de texto para o CNR-->
             <div id="cnrDiv" style="display: none;">
                 <label for="cnr">CNR:</label>
-                <input type="number" id="cnr" name="cnr" maxlength="8" required><br><br>
+                <input type="number" id="cnr" name="crm" maxlength="8" required><br><br>
             </div>
+
+
+            <label for="unidade">Unidade:</label>
+            <input type="text" id="unidade" name="unidade" required><br><br>
+
     
     
         <!-- Adiciona um rótulo e uma caixa de texto para o e-mail -->
@@ -65,7 +70,7 @@
     <!-- Adiciona um rótulo e uma caixa de texto para o estado-->
          
          <label for="endereco">UF</label>
-         <input type="text" id="uf" name="uf" readonly><br><br>         
+         <input type="text" id="uf" name="estado" readonly><br><br>         
 
          <!-- Adiciona um rótulo e uma caixa de texto para a cidade-->
          

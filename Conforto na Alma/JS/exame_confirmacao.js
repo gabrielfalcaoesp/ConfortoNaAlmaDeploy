@@ -1,4 +1,12 @@
 var nomeArmazenado = 'Anália Franco';
+var id_usuario = localStorage.getItem('id_usuario');
+    var id_medico = 1
+    const dataDeHoje = pegarDataDeHoje();
+
+
+function pegarDataDeHoje() {
+    return new Date().toISOString().split('T')[0];
+}
 
 if (nomeArmazenado) {
     document.getElementById('unidadeSalva').innerText = nomeArmazenado;
@@ -73,14 +81,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Redireciona para a página correspondente
         if (pixSelecionado) {
-            window.location.href = 'pix_exame.html';
+            window.location.href = 'pagamento/pix';
         } else if (cartaoSelecionado) {
-            window.location.href = 'cartao_exame.html';
+            window.location.href = 'pagamento/cartao';
         } else if (pagamentoConsultaSelecionado) {
-            window.location.href = 'clienteAgendado.html';
+            window.location.href = 'pagamento/consulta';
         } else {
             // Tratamento para quando nenhuma opção é selecionada
             alert('Selecione uma opção de pagamento.');
         }
     });
 });
+
+
+
+
+function enviarAgendamento() {
+    const agendamento = {
+        id_cliente: id_usuario,
+        id_medico: id_medico,
+        tipo_exame: especialidadeArmazenado,
+        data_agendada: dataSelecionada,
+        data_agendamento: dataDeHoje,
+        horario_consulta: horaSelecionada,
+        unidade: nomeArmazenado
+    };
+
+    console.log('Agendamento:', agendamento);
+
+    fetch('/Exame/Enviar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(agendamento)
+    })
+    .then(response => {
+        return "message: enviou para o banco"
+    })
+    .catch(error => {
+        console.error('Erro ao enviar o agendamento:', error);
+    });
+}
+
+

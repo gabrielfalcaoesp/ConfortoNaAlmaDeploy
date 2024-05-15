@@ -136,5 +136,11 @@ async def verificarLogin():
     global boolLogado
     return boolLogado
 
+@router.get("/Cliente/Perfil/")
+async def verificarLogin():
+    global boolLogado
+    if boolLogado == "":
+        return "Message: cliente não está logado"
+    return boolLogado
 
 

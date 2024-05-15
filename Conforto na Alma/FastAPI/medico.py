@@ -142,4 +142,3 @@ async def verificarLogin():
     return boolLogado
 
 
-

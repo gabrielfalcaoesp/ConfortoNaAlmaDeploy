@@ -44,3 +44,19 @@ app.include_router(router_medico)
 async def read_index( request: Request,):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/home/")
+async def read_index( request: Request,):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/Hipertrofia/")
+async def read_hipertrogia( request: Request,):
+    return templates.TemplateResponse("Hipertrofia.html", {"request": request})
+
+
+
+
+
+
+@app.get("/Emagrecimento/")
+async def read_emagrecimento( request: Request,):
+    return templates.TemplateResponse("emagrecimento.html", {"request": request})
