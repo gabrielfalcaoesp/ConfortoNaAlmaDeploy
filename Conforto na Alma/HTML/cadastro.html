@@ -22,9 +22,10 @@
         <label for="data_de_nascimento">Data de nascimento:</label>
         <input type="date" id="data_de_nascimento" name="data_de_nascimento" required><br><br>
 
-    <!-- Adiciona um rótulo e uma caixa de texto para adicionar o RG/RNE -->
+        <!-- Adiciona um rótulo e uma caixa de texto para adicionar o RG/RNE -->
         <label for="rg">RG/RNE</label>
-        <input type="number" id="rg" name="rg" maxlength="9" required><br><br>
+        <input type="number" id="rg" name="rg" oninput="this.value = this.value.slice(0, 9)" required><br><br>
+    
 
     <!-- Adiciona um rótulo e uma caixa de texto para adicionar o CPF -->
         <label for="cpf">CPF</label>
