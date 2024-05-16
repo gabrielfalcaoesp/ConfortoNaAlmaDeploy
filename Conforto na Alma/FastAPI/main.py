@@ -48,6 +48,15 @@ async def read_index( request: Request,):
 async def read_index( request: Request,):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/Sobre/")
+async def read_hipertrofia( request: Request,):
+    return templates.TemplateResponse("Sobre.html", {"request": request})
+
+@app.get("/Unidade/")
+async def read_hipertrofia( request: Request,):
+    return templates.TemplateResponse("unidade.html", {"request": request})
+
+
 @app.get("/Hipertrofia/")
 async def read_hipertrofia( request: Request,):
     return templates.TemplateResponse("Hipertrofia.html", {"request": request})
