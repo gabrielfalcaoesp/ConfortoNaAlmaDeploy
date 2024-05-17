@@ -1,0 +1,876 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+body{
+    background-color: #B1FACA;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.875rem;
+    margin: 0px;
+}
+
+header {
+  background-color: #64C27B; 
+  display: flex;
+  align-items: center;
+  height: 6.25rem;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 25%;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.navegacao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+
+nav {
+  width: 100%;
+  height: 100;
+  text-align: center;
+}
+
+/* Estilo para a lista não ordenada do menu */
+nav ul {
+  /* Remove a estilização padrão da lista */
+  list-style: none;
+}	
+
+/* Estilo para os itens da lista do menu */
+nav li {
+  /* Define o display como inline-block para ficar na mesma linha */
+  display: inline-block;
+
+  /* Define a margem à esquerda como 20 pixels para separar os itens */
+  margin-left: 1.25rem;
+}
+
+/* Estilo para os links do menu */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4375rem;
+  transition: 0.3s linear;
+  letter-spacing: 0;
+  
+}
+
+nav a:hover {
+  letter-spacing: 5px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+  
+.BL{
+width: 25%;
+right: 3.125rem;
+display: flex;
+justify-content: end;
+margin-right: 3.125rem;
+align-items: center;
+height: 100%;
+
+  }
+  
+/* formatação da imagem de botão de login - Tamanho */
+.BL img{	
+margin-top: 0.5625rem;
+width: 90%;
+height: 90%;
+cursor: pointer;
+}
+
+.caixa {
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  top: 100px; /* Posição vertical desejada */
+  right: 300px; /* Posição horizontal desejada */
+  height: 100px;
+  width: 200px;
+  display: none;
+  z-index: 9999;
+}
+
+.login-box {
+  width: 25rem;
+  height: 26.5625rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo_login{
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  width: 25rem;
+}
+
+.logo_login img {
+  margin-bottom: 1.25rem;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box form .user-box {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.login-box form .user-box input {
+  width: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #333;
+  border: none;
+  border-bottom: 0.125rem solid #666;
+  outline: none;
+  background: transparent;
+}
+
+.login-box form .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box form .user-box input:focus ~ label,
+.login-box form .user-box input:valid ~ label {
+  top: -0.75rem;
+  font-size: 0.875rem;
+  color: #000;
+}
+
+.opcoes{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 75px;
+}
+
+.opcoes1{
+  width: 50%;
+  height: 75px;
+}
+
+.opcoes2{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+  height: 75px;
+}
+
+.lembrar label{
+  font-size: 1rem;
+  color: #333;
+}
+
+.esqueceu a{
+  margin-left: 0.1875rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.opcoes2 a{
+  margin-top: 0px;
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  text-align: end;
+}
+
+.login-box form .entrar button {
+  width: 21.875rem;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: 0.3125rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login-box form .entrar button:hover {
+  background: #fff;
+  color: #333;
+  border: 0.0625rem solid #333;
+}
+.login-box form .entrar button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.0625rem;
+  background: #333;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.login-box form .entrar button span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.caixa2{
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  top: 100px; /* Posição vertical desejada */
+  right: 200px; /* Posição horizontal desejada */
+  height: 100px;
+  width: 200px;
+  display: none;
+  z-index: 9999;
+}
+
+.login-box2 {
+  width: 20rem;
+  height: 14.5625rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logado h2{
+font-size: 2rem;
+}
+
+.logo_login{
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  width: 25rem;
+}
+
+.login-box2 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-box2 form .sair button {
+  width: 21.875rem;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: 0.3125rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login-box2 form .sair button:hover {
+  background: #fff;
+  color: #333;
+  border: 0.0625rem solid #333;
+}
+.login-box2 form .sair button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.0625rem;
+  background: #333;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.login-box2 form .sair button span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+  footer{
+    background-color: #64C27B;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    }
+            
+    .contato img {
+     margin-left: 1.5rem;
+    height: 120px;
+     }
+
+footer .info{
+text-align: center;
+font-size: 0.8125rem;
+color: #fff;
+}
+		
+.fdp img{
+margin-right: 1.5rem;
+height: 120px;
+}
+
+/* ___________________________________________________FIM DO CABEÇALHO___________________________________________________ */
+
+/*Div para os elementos superiores da página*/
+    .info {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        }
+
+/* Grids da página*/
+.personal-image { grid-area: 1 / 3 / 3 / 4; }
+.dados { grid-area: 1 / 4 / 3 / 6; }
+.menu { grid-area: 2 / 3 / 8 / 6; }
+
+/*Input da Imagem*/
+.personal-image input[type="file"] {
+    display: none;
+    border-style: solid;
+}
+
+/* Classe para o nome do cliente*/
+.nome{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.125rem;
+}
+
+/*Div para os dados do cliente*/
+.elementos{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.875rem;
+}
+
+/*Classe para a tabela de informações do cliente*/
+.tabela{
+    padding: 10px;
+    border-spacing: 10px;
+    margin-right: -10px;
+}
+
+/*Tabela da Idade e CPF*/
+.table1{
+    margin-right: -10px;
+}
+
+/*Tabela para a data de nascimento*/
+.data{
+    text-align: initial;
+}
+
+/*Div para o status do cliente*/
+.status{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.875rem;
+    list-style: none;
+}
+
+/*Div principal para o menu*/
+.menu{
+    display: flex;
+    width: 1226px;
+    height: 424px;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 25%;
+    border-radius: 44px;
+    background: #9CE38C;
+}
+
+.navmenu{
+    display: block;
+    
+    height: 424px;
+    width: 276px;
+    border-top-left-radius: 44px;
+    border-bottom-left-radius: 44px;
+}
+
+.dadocad{
+    display: flex;
+    height: 108px;
+    width: 274.9px;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 42px;
+    transition-duration: 0.4s;
+    background-color: #9CE38C;
+}
+
+.dadocad:hover{
+    background-color: #81c27d;
+    cursor: pointer;
+}
+
+.dadocad h4{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.receitas{
+    display: block;
+    height: 108px;
+    width: 274.9px;
+    align-items: center;
+    justify-content: center;
+    margin-top: -36px;
+    background-color: #63A355;
+    transition-duration: 0.4s;
+}
+
+.receitas:hover{
+    background-color: #407935;
+    cursor: pointer;
+}
+
+.receitas h4{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.agendados{
+    display: block;
+    height: 108px;
+    width: 274.9px;
+    margin-top: -35px;
+    background-color: #63A355;
+    transition-duration: 0.4s;
+}
+
+.agendados:hover{
+    background-color: #407935;
+    cursor: pointer;
+}
+
+.agendados h4{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.historico{
+    display: block;
+    height: 25%;
+    width: 274.9px;
+    margin-top: -35px;
+    background-color: #63A355;
+    border-bottom-left-radius: 42px;
+    transition-duration: 0.4s;
+}
+
+.historico:hover{
+    background-color: #407935;
+    cursor: pointer;
+}
+
+.historico h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.selected {
+    background-color: #9CE38C;
+}
+
+.pessoal{
+    width: 950px;
+    height: 424px;
+    display: flex;
+
+}
+
+.leftside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 470px;
+}
+
+.rightside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 470px;
+}
+
+#mail{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#mailValue {    
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#tel{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#telValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#cep{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#cepValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#end{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#endValue{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button-6{
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+  
+.button-6:hover,
+.button-6:focus{
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+  
+.button-6:hover{
+    transform: translateY(-1px);
+}
+  
+.button-6:active{
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+#altura{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#numero{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.receitastab{
+    width: 950px;
+    height: 424px;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+    
+}
+
+.requisitadas{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.desc{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.agendadostab{
+    width: 950px;
+    height: 424px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.tab-container{
+    width: 853px;
+    height: 381px;
+    background-color: #FFFFFF;
+    border-radius: 35px;
+    justify-content: center;
+    border: solid 2px;
+}
+
+#agendados-tittle{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.tab-container-2{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    width: 853px;
+    height: 324px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    scroll-snap-align: start;
+    scroll-snap-type: y mandatory;
+}
+
+.section-1{
+    display: flex;
+    align-items: center;
+}
+
+.section-1 p{
+    margin: 0;
+}
+
+.section-2{
+    display: flex;
+    align-items: center;
+}
+
+.section-2 p{
+    margin: 0;
+}
+
+#marcada{
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+.blocoAgendado{
+    margin-left: 315px;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #E74646;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 135px;
+    height: 44px;
+    border-radius: 37px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.blocoAguardando{
+    margin-left: 125px;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDA237;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 135px;
+    height: 44px;
+    border-radius: 37px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.blocoAguardeAcao{
+    margin-left: 178px;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDA237;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 175px;
+    height: 80px;
+    border-radius: 13px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: none;
+}
+
+.blocoAguardeAcao p{
+    text-align: center;
+}
+
+.historicotab{
+    width: 950px;
+    height: 424px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#historico-tittle{
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.blocoConclusao{
+    margin-left: 315px;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #67FC4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 135px;
+    height: 44px;
+    border-radius: 37px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}
+
+/* ___________________________________________________INICIO RODAPÉ___________________________________________________ */
+footer{
+    background-color: #64C27B;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    }
+            
+    .contato img {
+     margin-left: 1.5rem;
+    height: 120px;
+     }
+
+footer .info2{
+text-align: center;
+font-size: 0.8125rem;
+color: #fff;
+}
+		
+.fdp img{
+margin-right: 1.5rem;
+height: 120px;
+}
+
+/* ___________________________________________________FIM RODAPÉ___________________________________________________ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 320) and (max-width: 769px)
+{
+	body{
+		background-color: #B1FACA;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-size: 1.875rem;
+		margin: 0px;
+	}
+
+	header {
+		/* Define a cor de fundo como verde */
+		background-color: #64C27B; /* verde */
+	
+		/* Define o layout como flexbox e alinha os itens verticalmente */
+		display: flex;
+		align-items: center;
+	
+		/* Define a altura do cabeçalho como 80 pixels */
+		height: 6.25rem;
+	}
+
+	.logo img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1.25rem;
+		height: 6.25rem;
+	}
+
+    nav{
+        display: none;
+    }
+
+    .BL{
+        display: none;
+    }
+}

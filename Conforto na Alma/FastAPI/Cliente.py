@@ -136,11 +136,23 @@ async def verificarLogin():
     global boolLogado
     return boolLogado
 
-@router.get("/Cliente/Perfil/")
-async def verificarLogin():
+@router.get("/Clientes/Perfil/")
+async def exibirPerfil(request: Request):
     global boolLogado
     if boolLogado == "":
         return "Message: cliente não está logado"
-    return boolLogado
+    return templates.TemplateResponse("perfil.html", {"request": request})
 
+
+@router.post("/Clientes/Perfil/")
+async def getInfoCliente():
+    global boolLogado
+    if boolLogado == "":
+        return "Message: cliente não está logado"
+    else:
+        query = "SELECT * FROM Cliente WHERE id_cliente = %s"
+        values = (boolLogado)
+        db_cursor.execute(query, values)
+        infoCliente = db_cursor.fetchone()
+        return infoCliente
 
