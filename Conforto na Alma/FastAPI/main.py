@@ -26,6 +26,7 @@ templates = Jinja2Templates(directory="../HTML")
 app.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
 app.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
 app.mount("/JS", StaticFiles(directory="../JS"), name="JS")
+app.mount("/Fontes", StaticFiles(directory="../Fontes"), name="Fontes")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Permitir solicitações de qualquer origem
