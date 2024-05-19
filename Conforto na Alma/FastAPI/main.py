@@ -48,15 +48,31 @@ async def read_index( request: Request,):
 async def read_index( request: Request,):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/Sobre/")
+async def read_hipertrofia( request: Request,):
+    return templates.TemplateResponse("Sobre.html", {"request": request})
+
+@app.get("/Unidade/")
+async def read_hipertrofia( request: Request,):
+    return templates.TemplateResponse("unidade.html", {"request": request})
+
+
 @app.get("/Hipertrofia/")
-async def read_hipertrogia( request: Request,):
+async def read_hipertrofia( request: Request,):
     return templates.TemplateResponse("Hipertrofia.html", {"request": request})
-
-
-
-
-
 
 @app.get("/Emagrecimento/")
 async def read_emagrecimento( request: Request,):
     return templates.TemplateResponse("emagrecimento.html", {"request": request})
+
+@app.get("/Geral/")
+async def read_geral( request: Request,):
+    return templates.TemplateResponse("geral.html", {"request": request})
+
+@app.get("/Materna/")
+async def read_materna( request: Request,):
+    return templates.TemplateResponse("materna.html", {"request": request})
+
+@app.get("/Esportiva/")
+async def read_esportiva( request: Request,):
+    return templates.TemplateResponse("esportiva.html", {"request": request})
