@@ -3,6 +3,8 @@
     var id_usuario = localStorage.getItem('id_usuario');
     var id_medico = 1
     const dataDeHoje = pegarDataDeHoje();
+    var dataSelecionada = localStorage.getItem("dataEscolhida");
+    var newData = exibirData(dataSelecionada);
 
     if (nomeArmazenado) {
         document.getElementById('unidadeSalva').innerText = nomeArmazenado;
@@ -20,7 +22,7 @@
        }
 
 
-    var dataSelecionada = localStorage.getItem("dataEscolhida");
+  
 
     if (dataSelecionada) {
         exibirData(dataSelecionada);
@@ -63,6 +65,7 @@
             dataSelecionada = `${dia < 10 ? '0' + dia : dia}-${mes < 10 ? '0' + mes : mes}-${ano}`;
         }
         document.getElementById('dataSalva').innerText = dataSelecionada;
+        return dataSelecionada
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -108,7 +111,7 @@
             id_cliente: id_usuario,
             id_medico: id_medico,
             tipo_consulta: especialidadeArmazenado,
-            data_agendada: dataSelecionada,
+            data_agendada: newData,
             data_agendamento: dataDeHoje,
             horario_consulta: horaSelecionada,
             unidade: nomeArmazenado
@@ -135,7 +138,7 @@
         `id_usuario: ${id_usuario}\n
         id_medico: ${id_medico}\n
         tipo_consulta: ${especialidadeArmazenado}\n
-        data_agendada: ${dataSelecionada}\n
+        data_agendada: ${newData}\n
         data_agendamento: ${dataDeHoje}\n
         horario_consulta: ${horaSelecionada}\n
         unidade: ${nomeArmazenado}` 

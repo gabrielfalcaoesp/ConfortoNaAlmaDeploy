@@ -1,4 +1,5 @@
 const url = '/Clientes/Perfil/';
+const agendamentosContainer = document.getElementById('agendamentosCliente');
 
 
 const options = {
@@ -7,7 +8,6 @@ const options = {
     'Content-Type': 'application/json', 
   },
 };
-
 
 fetch(url, options)
   .then(response => {
@@ -18,32 +18,147 @@ fetch(url, options)
   })
   .then(data => {
     const nome = document.querySelector('h1.nome');
-    nome.textContent = data[1];
+    nome.textContent = data[0][1]; // Supondo que o nome esteja na primeira posição de infoCliente
 
     const idade = document.querySelector('td.idade');
-    idadeUsuario = calcularIdade(data[2])
+    idadeUsuario = calcularIdade(data[0][2]); // Supondo que a data de nascimento esteja na segunda posição de infoCliente
     idade.textContent = "Idade: " + idadeUsuario + ' anos';
 
     const cpf = document.querySelector('td.cpf');
-    cpf.textContent ="CPF: " + data[4];
+    cpf.textContent = "CPF: " + data[0][4]; // Supondo que o CPF esteja na quarta posição de infoCliente
 
     const email = document.getElementById('mailValue')
-    email.textContent = data[5];
+    email.textContent = data[0][5]; // Supondo que o email esteja na quinta posição de infoCliente
 
     const telefone = document.getElementById('telValue')
-    telefone.textContent = data[6];
+    telefone.textContent = data[0][6]; // Supondo que o telefone esteja na sexta posição de infoCliente
 
     const cep = document.getElementById('cepValue')
-    cep.textContent = data[7];
+    cep.textContent = data[0][7]; // Supondo que o CEP esteja na sétima posição de infoCliente
 
     const endereco = document.getElementById('endValue')
-    endereco.textContent = data[11];
+    endereco.textContent = data[0][11]; // Supondo que o endereço esteja na décima segunda posição de infoCliente
 
-    console.log(data);
+    data[1].forEach((agendamentoData, index) => {
+      const novoAgendamento = document.createElement('div');
+      novoAgendamento.classList.add('section-1');
+  
+      const titulo = document.createElement('div');
+      titulo.id = 'marcada';
+      titulo.textContent = agendamentoData[3] + " - " +agendamentoData[4];
+  
+      const dataParagrafo = document.createElement('p');
+      dataParagrafo.textContent = '';
+  
+      const botoesContainer = document.createElement('div');
+      botoesContainer.classList.add('botoes-container');
+  
+      const detalhesBtn = document.createElement('button');
+      detalhesBtn.classList.add('btn', 'btn-custom');
+      detalhesBtn.textContent = 'Ver detalhes';
+  
+      const desmarcarBtn = document.createElement('button');
+      desmarcarBtn.classList.add('btn-cancel');
+      desmarcarBtn.textContent = 'Desmarcar';
+
+      detalhesBtn.addEventListener('click', () => {
+        var info = data[1][index];
+        var jsonString = JSON.stringify(info);
+        localStorage.setItem('detalhesAgendamento', jsonString);
+        window.location.href = '/Detalhes/Consulta/';
+        console.log(data[1][index]); 
+    });
+
+    desmarcarBtn.addEventListener('click', () => {
+      var agendamentoDelete = data[1][index][0]; 
+      window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
+      
+      console.log(data[1][index][0]); 
+  });
+
+
+      botoesContainer.appendChild(detalhesBtn);
+      botoesContainer.appendChild(desmarcarBtn);
+  
+      novoAgendamento.appendChild(titulo);
+      novoAgendamento.appendChild(dataParagrafo);
+      novoAgendamento.appendChild(botoesContainer);
+  
+      agendamentosContainer.appendChild(novoAgendamento);
+  });
+
+  
+
+
+
+
+
+
+
+  data[2].forEach((exameData, index) => {
+    const novoAgendamento = document.createElement('div');
+    novoAgendamento.classList.add('section-1');
+
+    const titulo = document.createElement('div');
+    titulo.id = 'marcada';
+    titulo.textContent = exameData[3] + " - " +exameData[4];
+
+    const dataParagrafo = document.createElement('p');
+    dataParagrafo.textContent = '';
+
+    const botoesContainer = document.createElement('div');
+    botoesContainer.classList.add('botoes-container2');
+
+    const detalhesBtn = document.createElement('button');
+    detalhesBtn.classList.add('btn', 'btn-custom');
+    detalhesBtn.textContent = 'Ver detalhes';
+
+    const desmarcarBtn = document.createElement('button');
+    desmarcarBtn.classList.add('btn-cancel');
+    desmarcarBtn.textContent = 'Desmarcar';
+
+    detalhesBtn.addEventListener('click', () => {
+      var info = data[1][index];
+      var jsonString = JSON.stringify(info);
+      localStorage.setItem('detalhesAgendamento', jsonString);
+      window.location.href = '/Detalhes/Consulta/';
+      console.log(data[1][index]); 
+  });
+
+  desmarcarBtn.addEventListener('click', () => {
+    var agendamentoDelete = data[1][index][0]; 
+    window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
+    
+    console.log(data[1][index][0]); 
+});
+
+
+    botoesContainer.appendChild(detalhesBtn);
+    botoesContainer.appendChild(desmarcarBtn);
+
+    novoAgendamento.appendChild(titulo);
+    novoAgendamento.appendChild(dataParagrafo);
+    novoAgendamento.appendChild(botoesContainer);
+
+    agendamentosContainer.appendChild(novoAgendamento);
+});
+
+
+
+
+
+
+
+
+    
+    console.log("Info Cliente:", data[0]);
+    console.log("Agendamentos:", data[1]);
+    console.log("Exames: data:", data[2]);
   })
   .catch(error => {
     console.error('Erro:', error);
   });
+
 
 
 

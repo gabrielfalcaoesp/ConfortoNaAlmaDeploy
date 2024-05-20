@@ -682,14 +682,16 @@ height: 120px;
 }
 
 .tab-container-2{
-    font-size: 25px;
+    width: 850px;
+    max-height: 300px; /* Defina a altura máxima desejada */
+    overflow-y: scroll; /* Permite a rolagem vertical */
+    font-size: 22.5px;
     font-family: 'Montserrat', sans-serif;
-    width: 853px;
-    height: 324px;
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;
     scroll-snap-align: start;
     scroll-snap-type: y mandatory;
+    white-space: nowrap
 }
 
 .section-1{
@@ -715,6 +717,85 @@ height: 120px;
     padding-right: 20px;
 }
 
+.btn {
+  margin-left: 100px;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; 
+  font-family: 'Montserrat', sans-serif; 
+  color: #ffffff; 
+  background-color: #4f4f4f;
+}
+
+.btn-custom {
+  width: 150px;
+}
+
+.btn:hover {
+  background-color: #000000; 
+  color: #afafaf; 
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.botoes-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 500px;
+  height: 50px;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.botoes-container2 {
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 500px;
+  height: 50px;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.btn-cancel {
+  margin-left: 15px;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; 
+  font-family: 'Montserrat', sans-serif; 
+  color: #ffffff; 
+  background-color: #c92d2d;;
+}
+
+.btn-cancel:hover {
+  background-color: #db0909; 
+  color: #212121; 
+}
+
+.btn-cancel:hover {
+  opacity: 0.8;
+}
+
+.scrollable-list {
+  padding: 10px; /* Adiciona espaçamento interno */
+}
+
+.section-1, .section-2 {
+  margin-bottom: 10px; /* Espaçamento entre as seções */
+}
+
 .blocoAgendado{
     margin-left: 315px;
     font-size: 17px;
@@ -730,7 +811,7 @@ height: 120px;
 }
 
 .blocoAguardando{
-    margin-left: 125px;
+    margin-left: 315px;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     background-color: #FDA237;
@@ -775,6 +856,53 @@ height: 120px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-top: 5px;
+}
+
+
+.btn2 {
+  margin-left: 355px;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; 
+  font-family: 'Montserrat', sans-serif; 
+  color: #ffffff; 
+  background-color: #4f4f4f;
+}
+
+.btn2:hover {
+  background-color: #000000; 
+  color: #afafaf; 
+}
+
+.btn2:hover {
+  opacity: 0.8;
+}
+
+.btn2-cancel {
+  margin-left: 15px;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; 
+  font-family: 'Montserrat', sans-serif; 
+  color: #ffffff; 
+  background-color: #c92d2d;;
+}
+
+.btn2-cancel:hover {
+  background-color: #db0909; 
+  color: #212121; 
+}
+
+.btn2-cancel:hover {
+  opacity: 0.8;
 }
 
 .blocoConclusao{

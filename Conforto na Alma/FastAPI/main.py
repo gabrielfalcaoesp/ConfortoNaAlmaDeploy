@@ -1,11 +1,12 @@
 from fastapi import FastAPI, HTTPException, Form
-from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 import mysql.connector
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+import Cliente 
+from fastapi.responses import RedirectResponse
 
 from Cliente import router as cliente_router
 from consulta import router_consulta as consulta_router
@@ -16,7 +17,8 @@ db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password="1234",
-    database="conforto_na_alma" 
+    database="conforto_na_alma",
+    autocommit=True
 )
 db_cursor = db_connection.cursor()
 
@@ -77,3 +79,9 @@ async def read_materna( request: Request,):
 @app.get("/Esportiva/")
 async def read_esportiva( request: Request,):
     return templates.TemplateResponse("esportiva.html", {"request": request})
+
+@app.get("/Logout/")
+async def logout(request: Request):
+    Cliente.boolLogado=""
+    Cliente.id_usuario=""
+    return RedirectResponse(url="/home/")

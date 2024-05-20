@@ -147,6 +147,7 @@ async def exibirPerfil(request: Request):
 @router.post("/Clientes/Perfil/")
 async def getInfoCliente():
     global boolLogado
+    db_connection.reconnect()
     if boolLogado == "":
         return "Message: cliente não está logado"
     else:
@@ -154,5 +155,17 @@ async def getInfoCliente():
         values = (boolLogado)
         db_cursor.execute(query, values)
         infoCliente = db_cursor.fetchone()
-        return infoCliente
+
+        queryAgendamentos = "SELECT * FROM agendamento_consulta WHERE id_cliente = %s"
+        values = (boolLogado)
+        db_cursor.execute(queryAgendamentos, values)
+        agendamentosCliente = db_cursor.fetchall()
+
+
+        queryExames = "SELECT * FROM agendamento_exame WHERE id_cliente = %s"
+        values = (boolLogado)
+        db_cursor.execute(queryExames, values)
+        examesCliente = db_cursor.fetchall()
+
+        return infoCliente, agendamentosCliente, examesCliente
 

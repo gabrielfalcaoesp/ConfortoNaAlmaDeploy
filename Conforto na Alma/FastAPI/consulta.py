@@ -74,3 +74,22 @@ async def enviar_agendamento(request: Request, consulta: Consulta):
     db_connection.commit()
     return templates.TemplateResponse("index.html", {"request": request})
 
+@router_consulta.get("/Detalhes/Consulta/")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("agendamento_detalhes.html", {"request": request})
+
+@router_consulta.get("/Desmarcar/Consulta/{agendamentoDelete}")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("Confirmacao_DesmarcarAgendamento.html", {"request": request})
+
+@router_consulta.post("/Deletar/Consulta/{agendamentoDelete}")
+async def deletar_consulta(request: Request, agendamentoDelete: int):
+    try:
+        query = "DELETE FROM agendamento_consulta WHERE id_agendamento_consulta = %s"
+        values = (agendamentoDelete,)  # Note a vírgula para criar uma tupla
+        db_cursor.execute(query, values)
+        db_connection.commit()
+        return {"message": "Consulta deletada com sucesso"}
+    except Exception as e:
+        # Em caso de erro, retornar uma resposta de erro
+        return {"error": str(e)}

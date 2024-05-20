@@ -78,6 +78,7 @@ function salvarDataERedirecionar() {
 }
 
 function salvarValor(dataEscolhida){
+  console.log("função chamar valor chamada: " + dataEscolhida)
   localStorage.setItem('dataEscolhida', dataEscolhida);
   return dataEscolhida
 }
