@@ -80,25 +80,25 @@ nav a:hover {
 }
     
 .BL{
-width: 25%;
-right: 3.125rem;
-display: flex;
-justify-content: end;
-margin-right: 3.125rem;
-align-items: center;
-height: 100%;
-
+  width: 25%;
+  right: 3.125rem;
+  display: flex;
+  justify-content: end;
+  margin-right: 3.125rem;
+  align-items: center;
+  height: 100%;
+  
     }
     
-/* formatação da imagem de botão de login - Tamanho */
-.BL img{	
-margin-top: 0.5625rem;
-width: 90%;
-height: 90%;
-cursor: pointer;
-}
-
-.caixa {
+  /* formatação da imagem de botão de login - Tamanho */
+  .BL img{	
+  margin-top: 0.5625rem;
+  width: 90%;
+  height: 90%;
+  cursor: pointer;
+  }
+  
+  .caixa {
     display: flex;
     justify-content: end;
     position: fixed;
@@ -108,7 +108,6 @@ cursor: pointer;
     width: 200px;
     display: none;
     z-index: 9999;
-
   }
   
   .login-box {
@@ -119,7 +118,7 @@ cursor: pointer;
     border-radius: 0.625rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   }
-
+  
   .logo_login{
     display: flex;
     justify-content: center;
@@ -168,19 +167,19 @@ cursor: pointer;
     font-size: 0.875rem;
     color: #000;
   }
-
+  
   .opcoes{
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 75px;
   }
-
+  
   .opcoes1{
     width: 50%;
     height: 75px;
   }
-
+  
   .opcoes2{
     display: flex;
     justify-content: end;
@@ -188,18 +187,18 @@ cursor: pointer;
     width: 50%;
     height: 75px;
   }
-
+  
   .lembrar label{
     font-size: 1rem;
     color: #333;
   }
-
+  
   .esqueceu a{
     margin-left: 0.1875rem;
     font-size: 1rem;
     color: #333;
   }
-
+  
   .opcoes2 a{
     margin-top: 0px;
     font-size: 1rem;
@@ -208,7 +207,7 @@ cursor: pointer;
     text-align: end;
   }
   
-  .login-box form .entrar a {
+  .login-box form .entrar button {
     width: 21.875rem;
     display: inline-block;
     background: #333;
@@ -220,12 +219,12 @@ cursor: pointer;
     transition: 0.5s;
   }
   
-  .login-box form .entrar a:hover {
+  .login-box form .entrar button:hover {
     background: #fff;
     color: #333;
     border: 0.0625rem solid #333;
   }
-  .login-box form .entrar a span {
+  .login-box form .entrar button span {
     position: absolute;
     display: block;
     width: 100%;
@@ -235,7 +234,79 @@ cursor: pointer;
     transition: 0.5s;
   }
   
-  .login-box form .entrar a span:nth-child(1) {
+  .login-box form .entrar button span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  
+  .caixa2{
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    top: 100px; /* Posição vertical desejada */
+    right: 200px; /* Posição horizontal desejada */
+    height: 100px;
+    width: 200px;
+    display: none;
+    z-index: 9999;
+  }
+  
+  .login-box2 {
+    width: 20rem;
+    height: 14.5625rem;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .logado h2{
+  font-size: 2rem;
+  }
+  
+  .logo_login{
+    display: flex;
+    justify-content: center;
+    height: 10rem;
+    width: 25rem;
+  }
+  
+  .login-box2 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .login-box2 form .sair button {
+    width: 21.875rem;
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 0.625rem 1.25rem;
+    margin-top: 1rem;
+    border-radius: 0.3125rem;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  
+  .login-box2 form .sair button:hover {
+    background: #fff;
+    color: #333;
+    border: 0.0625rem solid #333;
+  }
+  .login-box2 form .sair button span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0.0625rem;
+    background: #333;
+    transform: scale(0);
+    transition: 0.5s;
+  }
+  
+  .login-box2 form .sair button span:nth-child(1) {
     top: 0;
     left: 0;
   }
