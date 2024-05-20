@@ -43,14 +43,14 @@
                 <div class="logo_login">
                     <img src="../Imagens/logo.png"alt="">
                 </div>
-                <form>
+                <form action="http://127.0.0.1:8000/Clientes/Login" method="POST">
                     <div class="user-box">
-                        <input type="text" name="" required="">
-                        <label>Usuário</label>
+                        <input type="text" required="" id="email" name="email">
+                        <label for="email">Usuário</label>
                     </div>
                     <div class="user-box">
-                        <input type="password" name="" required="">
-                        <label>Senha</label>
+                        <input type="password" required="" id="senha" name="senha">
+                        <label for="senha">Senha</label>
                     </div>
                     <div class="opcoes">
                         <div class ='opcoes1'>
@@ -65,15 +65,42 @@
                     
     
                         <div class="opcoes2">
-                            <a href="cadastro.html">Não possui uma conta?<b>Cadastre-se aqui</b></a>
+                            <a href="/cadastro/">Não possui uma conta?<b>Cadastre-se aqui</b></a>
                         </div>
                     </div>
     
                     <div class="entrar">
-                    <a href="#">Entrar</a>
+                    <button type="submit">Entrar</button>
                     
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div class = "caixa2">
+            <div class="login-box2">
+                <form>
+    
+                    <div class="logado">
+                        <h2>
+                            Seja bem-vindo %!!
+                        </h2>
+                    </div>
+    
+                    <div class="sair">
+                        <a href="/Clientes/Perfil/" onclick="window.location.href='/Clientes/Perfil/'; return false;">
+                            <button>Perfil</button>
+                        </a>
+                    </div>
+              
+                    <div class="sair">
+                        <a href="/Logout/" onclick="window.location.href='/Logout/'; return false;">
+                            <button>Desconectar</button>
+                        </a>
+                    </div>
+                </form>
+                </div>
+            </form>
             </div>
         </div>
 
@@ -131,7 +158,7 @@
                 </div>
     </footer>
 
-    <script src="../JS/home_js.js"></script>
+    <script src="../JS/hipertrofia.js"></script>
     
 </body>
 </html>
