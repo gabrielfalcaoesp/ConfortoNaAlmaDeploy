@@ -80,6 +80,14 @@ async def read_materna( request: Request,):
 async def read_esportiva( request: Request,):
     return templates.TemplateResponse("esportiva.html", {"request": request})
 
+@app.get("/Esqueceu_senha/")
+async def read_esqueceusenha( request: Request,):
+    return templates.TemplateResponse("recuperar.html", {"request": request})
+
+@app.get("/Agendamento_confirmado/")
+async def read_agendamentoconfirmado( request: Request,):
+    return templates.TemplateResponse("clienteAgendado.html", {"request": request})
+
 @app.get("/Logout/")
 async def logout(request: Request):
     Cliente.boolLogado=""
