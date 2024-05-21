@@ -69,7 +69,6 @@ async def get_clientes(id_medico: int):
         raise HTTPException(status_code=404, detail="Medico não encontrado")
     return clientes
 
-
 @router_medico.post("/Medicos/Cadastro")
 async def create_cliente(
     request: Request,
@@ -118,6 +117,10 @@ async def delete_cliente(cliente_id: int):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     return {"message": "Cliente deletado com sucesso"}
 
+@router_medico.get("/Medicos/Login/")
+async def get_funlogin(request: Request,):
+    return templates.TemplateResponse("login_funcionario.html", {"request": request})
+
 @router_medico.post("/Medicos/Login")
 async def login_cliente(
     request: Request,
@@ -141,4 +144,40 @@ async def verificarLogin():
     global boolLogado
     return boolLogado
 
+@router_medico.get("/Medicos/perfil/")
+async def get_medperfil(request: Request,):
+    return templates.TemplateResponse("perfil_medico.html", {"request": request})
+
+@router_medico.get("/Medicos/Perfil/")
+async def exibirPerfil(request: Request):
+    global boolLogado
+    if boolLogado == "":
+        return "Message: cliente não está logado"
+    return templates.TemplateResponse("perfil_medico.html", {"request": request})
+
+
+@router_medico.post("/Medicos/Perfil/")
+async def getInfoCliente():
+    global boolLogado
+    db_connection.reconnect()
+    if boolLogado == "":
+        return "Message: médico não está logado"
+    else:
+        query = "SELECT * FROM medico WHERE id_medico = %s"
+        values = (boolLogado)
+        db_cursor.execute(query, values)
+        infoCliente = db_cursor.fetchone()
+
+        queryAgendamentos = "SELECT * FROM agendamento_consulta WHERE id_medico = %s"
+        values = (boolLogado)
+        db_cursor.execute(queryAgendamentos, values)
+        agendamentosCliente = db_cursor.fetchall()
+
+
+        queryExames = "SELECT * FROM agendamento_exame WHERE id_medico = %s"
+        values = (boolLogado)
+        db_cursor.execute(queryExames, values)
+        examesCliente = db_cursor.fetchall()
+
+        return infoCliente, agendamentosCliente, examesCliente
 
