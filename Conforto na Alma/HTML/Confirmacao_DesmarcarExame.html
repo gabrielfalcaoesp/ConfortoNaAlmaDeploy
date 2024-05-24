@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmação de Cancelamento de Agendamento</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #B1FACA; /* Cor de fundo verde */
+    }
+    .container {
+    background-color: #B1FACA; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card-body{
+        font-size: 20px;
+        background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="card-body text-center">
+      <h5 class="card-title">Confirmação de Cancelamento de Exame</h5>
+      <p class="card-text">Tem certeza de que deseja cancelar seu Exame?</p>
+        <button type="button" class="btn btn-danger mr-2" id="confirmarBtn">Confirmar Cancelamento</button>
+
+      
+      
+      <a href="/Detalhes/Consulta/{agendamentoDelete}" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (opcional, se precisar de funcionalidades como modals) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Seu código JavaScript -->
+<script>
+    document.getElementById('confirmarBtn').addEventListener('click', function() {
+      // Capturando o valor da rota
+      var pathname = window.location.pathname;
+      var consultaId = pathname.split('/').pop();
+      
+      // Configurando os parâmetros para a solicitação POST
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' // Se estiver enviando JSON, ajuste o cabeçalho conforme necessário
+        },
+        body: JSON.stringify({ agendamentoDelete: consultaId }) // Convertendo os dados para JSON
+      };
+      
+      fetch('/Deletar/Exame/' + consultaId, requestOptions)
+        .then(response => {
+          if (response.ok) {
+            window.location.href = "/Clientes/Perfil/"
+            
+            console.log('Agendamento cancelado com sucesso!');
+          } else {
+            console.error('Erro ao cancelar o agendamento:', response.status);
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao cancelar o agendamento:', error);
+        });
+    });
+  </script>
+
+</body>
+</html>

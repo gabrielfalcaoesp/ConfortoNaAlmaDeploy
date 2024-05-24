@@ -14,12 +14,13 @@ from exame import router_exame as router_exame
 from medico import router_medico as router_medico
 
 db_connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1234",
+    host="server-cna.mysql.database.azure.com",
+    user="gabriel",
+    password="senai103@",
     database="conforto_na_alma",
     autocommit=True
 )
+
 db_cursor = db_connection.cursor()
 
 

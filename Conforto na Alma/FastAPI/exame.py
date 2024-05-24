@@ -9,9 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 db_connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1234",
+    host="server-cna.mysql.database.azure.com",
+    user="gabriel",
+    password="senai103@",
     database="conforto_na_alma" 
 )
 db_cursor = db_connection.cursor()
@@ -69,3 +69,23 @@ async def enviar_agendamento(request: Request, consulta: Exame):
     db_cursor.execute(query, values)
     db_connection.commit()
     return templates.TemplateResponse("index.html", {"request": request})
+
+@router_exame.get("/Detalhes/Exame/")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("exame_detalhes.html", {"request": request})
+
+@router_exame.get("/Desmarcar/Exame/{agendamentoDelete}")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("Confirmacao_DesmarcarExame.html", {"request": request})
+
+@router_exame.post("/Deletar/Exame/{agendamentoDelete}")
+async def deletar_consulta(request: Request, agendamentoDelete: int):
+    try:
+        query = "DELETE FROM agendamento_exame WHERE id_agendamento_exame = %s"
+        values = (agendamentoDelete,)  # Note a vírgula para criar uma tupla
+        db_cursor.execute(query, values)
+        db_connection.commit()
+        return {"message": "Consulta deletada com sucesso"}
+    except Exception as e:
+        # Em caso de erro, retornar uma resposta de erro
+        return {"error": str(e)}

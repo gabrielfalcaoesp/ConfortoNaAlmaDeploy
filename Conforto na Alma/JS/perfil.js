@@ -39,7 +39,13 @@ fetch(url, options)
     const endereco = document.getElementById('endValue')
     endereco.textContent = data[0][11]; // Supondo que o endereço esteja na décima segunda posição de infoCliente
 
+    const hoje = new Date(); // Obtém a data atual
+    const hojeFormatado = formatDate(hoje); 
+
     data[1].forEach((agendamentoData, index) => {
+      console.log(hojeFormatado)
+      console.log(agendamentoData[4])
+      if (agendamentoData[4] >= hojeFormatado) {
       const novoAgendamento = document.createElement('div');
       novoAgendamento.classList.add('section-1');
   
@@ -85,6 +91,56 @@ fetch(url, options)
       novoAgendamento.appendChild(botoesContainer);
   
       agendamentosContainer.appendChild(novoAgendamento);
+} 
+
+else {
+  const novoAgendamento = document.createElement('div');
+  novoAgendamento.classList.add('section-1');
+
+  const titulo = document.createElement('div');
+  titulo.id = 'marcada';
+  titulo.textContent = agendamentoData[3] + " - " + agendamentoData[4];
+
+  const dataParagrafo = document.createElement('p');
+  dataParagrafo.textContent = '';
+
+  const botoesContainer = document.createElement('div');
+  botoesContainer.classList.add('botoes-container');
+
+  const detalhesBtn = document.createElement('button');
+  detalhesBtn.classList.add('btn', 'btn-custom');
+  detalhesBtn.textContent = 'Ver detalhes';
+
+  const desmarcarBtn = document.createElement('button');
+  desmarcarBtn.classList.add('btn-cancel');
+  desmarcarBtn.textContent = 'Desmarcar';
+
+  detalhesBtn.addEventListener('click', () => {
+      var info = data[1][index];
+      var jsonString = JSON.stringify(info);
+      localStorage.setItem('detalhesAgendamento', jsonString);
+      window.location.href = '/Detalhes/Consulta/';
+      console.log(data[1][index]);
+  });
+
+  desmarcarBtn.addEventListener('click', () => {
+      var agendamentoDelete = data[1][index][0];
+      window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
+
+      console.log(data[1][index][0]);
+  });
+
+  botoesContainer.appendChild(detalhesBtn);
+  botoesContainer.appendChild(desmarcarBtn);
+
+  novoAgendamento.appendChild(titulo);
+  novoAgendamento.appendChild(dataParagrafo);
+  novoAgendamento.appendChild(botoesContainer);
+
+  const agendamentosContainerHistorico = document.getElementById('agendamentosClienteHistorico');
+  agendamentosContainerHistorico.appendChild(novoAgendamento);
+}
+
   });
 
   
@@ -95,53 +151,107 @@ fetch(url, options)
 
 
 
+
   data[2].forEach((exameData, index) => {
-    const novoAgendamento = document.createElement('div');
-    novoAgendamento.classList.add('section-1');
+      console.log(hojeFormatado)
+      console.log(exameData[4])
+      if (exameData[4] >= hojeFormatado) {
+        
+          // Se a data do exame for igual ou superior a hoje, continuar com o processamento
+          const novoAgendamento = document.createElement('div');
+          novoAgendamento.classList.add('section-1');
+  
+          const titulo = document.createElement('div');
+          titulo.id = 'marcada';
+          titulo.textContent = exameData[3] + " - " + exameData[4];
+  
+          const dataParagrafo = document.createElement('p');
+          dataParagrafo.textContent = '';
+  
+          const botoesContainer = document.createElement('div');
+          botoesContainer.classList.add('botoes-container2');
+  
+          const detalhesBtn = document.createElement('button');
+          detalhesBtn.classList.add('btn', 'btn-custom');
+          detalhesBtn.textContent = 'Ver detalhes';
+  
+          const desmarcarBtn = document.createElement('button');
+          desmarcarBtn.classList.add('btn-cancel');
+          desmarcarBtn.textContent = 'Desmarcar';
+  
+          detalhesBtn.addEventListener('click', () => {
+              var info = data[2][index];
+              var jsonString = JSON.stringify(info);
+              localStorage.setItem('detalhesExame', jsonString);
+              window.location.href = '/Detalhes/Exame/';
+              console.log(data[1][index]);
+          });
+  
+          desmarcarBtn.addEventListener('click', () => {
+              var agendamentoDelete = data[2][index][0];
+              window.location.href = `/Desmarcar/Exame/${agendamentoDelete}`;
+  
+              console.log(data[2][index][0]);
+          });
+  
+          botoesContainer.appendChild(detalhesBtn);
+          botoesContainer.appendChild(desmarcarBtn);
+  
+          novoAgendamento.appendChild(titulo);
+          novoAgendamento.appendChild(dataParagrafo);
+          novoAgendamento.appendChild(botoesContainer);
+  
+          agendamentosContainer.appendChild(novoAgendamento);
+      }
 
-    const titulo = document.createElement('div');
-    titulo.id = 'marcada';
-    titulo.textContent = exameData[3] + " - " +exameData[4];
-
-    const dataParagrafo = document.createElement('p');
-    dataParagrafo.textContent = '';
-
-    const botoesContainer = document.createElement('div');
-    botoesContainer.classList.add('botoes-container2');
-
-    const detalhesBtn = document.createElement('button');
-    detalhesBtn.classList.add('btn', 'btn-custom');
-    detalhesBtn.textContent = 'Ver detalhes';
-
-    const desmarcarBtn = document.createElement('button');
-    desmarcarBtn.classList.add('btn-cancel');
-    desmarcarBtn.textContent = 'Desmarcar';
-
-    detalhesBtn.addEventListener('click', () => {
-      var info = data[1][index];
-      var jsonString = JSON.stringify(info);
-      localStorage.setItem('detalhesAgendamento', jsonString);
-      window.location.href = '/Detalhes/Consulta/';
-      console.log(data[1][index]); 
+      else{
+        const novoAgendamento = document.createElement('div');
+        novoAgendamento.classList.add('section-1');
+      
+        const titulo = document.createElement('div');
+        titulo.id = 'marcada';
+        titulo.textContent = exameData[3] + " - " + exameData[4];
+      
+        const dataParagrafo = document.createElement('p');
+        dataParagrafo.textContent = '';
+      
+        const botoesContainer = document.createElement('div');
+        botoesContainer.classList.add('botoes-container');
+      
+        const detalhesBtn = document.createElement('button');
+        detalhesBtn.classList.add('btn', 'btn-custom');
+        detalhesBtn.textContent = 'Ver detalhes';
+      
+        const desmarcarBtn = document.createElement('button');
+        desmarcarBtn.classList.add('btn-cancel');
+        desmarcarBtn.textContent = 'Desmarcar';
+      
+        detalhesBtn.addEventListener('click', () => {
+            var info = data[2][index];
+            var jsonString = JSON.stringify(info);
+            localStorage.setItem('detalhesExame', jsonString);
+            window.location.href = '/Detalhes/Exame/';
+            console.log(data[2][index]);
+        });
+      
+        desmarcarBtn.addEventListener('click', () => {
+            var agendamentoDelete = data[2][index][0];
+            window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
+      
+            console.log(data[2][index][0]);
+        });
+      
+        botoesContainer.appendChild(detalhesBtn);
+        botoesContainer.appendChild(desmarcarBtn);
+      
+        novoAgendamento.appendChild(titulo);
+        novoAgendamento.appendChild(dataParagrafo);
+        novoAgendamento.appendChild(botoesContainer);
+      
+        const agendamentosContainerHistorico = document.getElementById('agendamentosClienteHistorico');
+        agendamentosContainerHistorico.appendChild(novoAgendamento);
+      }
   });
-
-  desmarcarBtn.addEventListener('click', () => {
-    var agendamentoDelete = data[1][index][0]; 
-    window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
-    
-    console.log(data[1][index][0]); 
-});
-
-
-    botoesContainer.appendChild(detalhesBtn);
-    botoesContainer.appendChild(desmarcarBtn);
-
-    novoAgendamento.appendChild(titulo);
-    novoAgendamento.appendChild(dataParagrafo);
-    novoAgendamento.appendChild(botoesContainer);
-
-    agendamentosContainer.appendChild(novoAgendamento);
-});
 
 
 
@@ -291,4 +401,19 @@ function calcularIdade(dataNascimento) {
   const idade = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // Considerando anos bissextos
   
   return idade;
+}
+
+
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  if (month < 10) {
+      month = '0' + month;
+  }
+  let day = date.getDate();
+  if (day < 10) {
+      day = '0' + day;
+  }
+  return year + '-' + month + '-' + day;
 }
