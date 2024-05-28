@@ -26,9 +26,9 @@ class Consulta(BaseModel):
     unidade: str
 
 router_consulta = APIRouter()
-router_consulta.mount("/CSS", StaticFiles(directory="./../CSS"), name="CSS")
-router_consulta.mount("/Imagens", StaticFiles(directory="./../Imagens"), name="Imagens")
-templates = Jinja2Templates(directory="./../HTML")
+router_consulta.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
+router_consulta.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
+templates = Jinja2Templates(directory="../HTML")
 
 
 
