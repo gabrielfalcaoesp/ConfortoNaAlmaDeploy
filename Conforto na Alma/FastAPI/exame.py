@@ -26,8 +26,6 @@ class Exame(BaseModel):
     unidade: str
 
 router_exame = APIRouter()
-router_exame.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
-router_exame.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
 templates = Jinja2Templates(directory="../HTML")
 
 
