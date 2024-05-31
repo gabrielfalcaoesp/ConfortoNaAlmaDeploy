@@ -6,6 +6,8 @@ from fastapi import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import Cliente 
+from starlette.staticfiles import StaticFiles
+import os
 from fastapi.responses import RedirectResponse
 
 from Cliente import router as cliente_router
@@ -26,10 +28,30 @@ db_cursor = db_connection.cursor()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="../HTML")
-app.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
-app.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
-app.mount("/JS", StaticFiles(directory="../JS"), name="JS")
-app.mount("/Fontes", StaticFiles(directory="../Fontes"), name="Fontes")
+# app.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
+# app.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
+# app.mount("/JS", StaticFiles(directory="../JS"), name="JS")
+# app.mount("/Fontes", StaticFiles(directory="../Fontes"), name="Fontes")
+
+# Obter o caminho absoluto do diretório atual do arquivo Python
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Definir o caminho para o diretório "Conforto na Alma"
+conforto_na_alma_dir = os.path.join(current_directory, "..")
+
+# Definir os caminhos absolutos para os diretórios estáticos
+css_dir = os.path.join(conforto_na_alma_dir, "CSS")
+imagens_dir = os.path.join(conforto_na_alma_dir, "Imagens")
+js_dir = os.path.join(conforto_na_alma_dir, "JS")
+fontes_dir = os.path.join(conforto_na_alma_dir, "Fontes")
+
+# Montar as rotas estáticas com os diretórios absolutos
+app.mount("/CSS", StaticFiles(directory=css_dir), name="CSS")
+app.mount("/Imagens", StaticFiles(directory=imagens_dir), name="Imagens")
+app.mount("/JS", StaticFiles(directory=js_dir), name="JS")
+app.mount("/Fontes", StaticFiles(directory=fontes_dir), name="Fontes")
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Permitir solicitações de qualquer origem
