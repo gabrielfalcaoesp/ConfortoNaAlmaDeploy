@@ -27,7 +27,7 @@ db_cursor = db_connection.cursor()
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="../HTML")
+# templates = Jinja2Templates(directory="../HTML") transformar esse template em os.path.dir, refazer deploy, atualizar a pasta e testar 
 # app.mount("/CSS", StaticFiles(directory="../CSS"), name="CSS")
 # app.mount("/Imagens", StaticFiles(directory="../Imagens"), name="Imagens")
 # app.mount("/JS", StaticFiles(directory="../JS"), name="JS")
@@ -50,6 +50,9 @@ app.mount("/CSS", StaticFiles(directory=css_dir), name="CSS")
 app.mount("/Imagens", StaticFiles(directory=imagens_dir), name="Imagens")
 app.mount("/JS", StaticFiles(directory=js_dir), name="JS")
 app.mount("/Fontes", StaticFiles(directory=fontes_dir), name="Fontes")
+html_dir = os.path.join(conforto_na_alma_dir, "HTML")
+
+templates = Jinja2Templates(directory=html_dir)
 
 
 app.add_middleware(
@@ -116,3 +119,7 @@ async def logout(request: Request):
     Cliente.boolLogado=""
     Cliente.id_usuario=""
     return RedirectResponse(url="/home/")
+
+@app.get("/Teste/")
+async def teste():
+    return "message: está funcionando"
