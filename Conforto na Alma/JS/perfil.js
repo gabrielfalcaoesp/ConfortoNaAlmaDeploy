@@ -43,9 +43,8 @@ fetch(url, options)
     const hojeFormatado = formatDate(hoje); 
 
     data[1].forEach((agendamentoData, index) => {
-      console.log(hojeFormatado)
-      console.log(agendamentoData[4])
-      if (agendamentoData[4] >= hojeFormatado) {
+      dataConvertida = convertToDate(agendamentoData[4])
+      if (dataConvertida >= hojeFormatado) {
       const novoAgendamento = document.createElement('div');
       novoAgendamento.classList.add('section-1');
   
@@ -120,14 +119,12 @@ else {
       var jsonString = JSON.stringify(info);
       localStorage.setItem('detalhesAgendamento', jsonString);
       window.location.href = '/Detalhes/Consulta/';
-      console.log(data[1][index]);
   });
 
   desmarcarBtn.addEventListener('click', () => {
       var agendamentoDelete = data[1][index][0];
       window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
 
-      console.log(data[1][index][0]);
   });
 
   botoesContainer.appendChild(detalhesBtn);
@@ -153,10 +150,10 @@ else {
 
 
   data[2].forEach((exameData, index) => {
-      console.log(hojeFormatado)
-      console.log(exameData[4])
-      if (exameData[4] >= hojeFormatado) {
-        
+    dataConvertida = convertToDate2(exameData[4])
+      if (dataConvertida >= hojeFormatado) {
+        console.log("exame - data agendada: ", dataConvertida)
+        console.log("exame hoje: ", hojeFormatado)
           // Se a data do exame for igual ou superior a hoje, continuar com o processamento
           const novoAgendamento = document.createElement('div');
           novoAgendamento.classList.add('section-1');
@@ -184,14 +181,11 @@ else {
               var jsonString = JSON.stringify(info);
               localStorage.setItem('detalhesExame', jsonString);
               window.location.href = '/Detalhes/Exame/';
-              console.log(data[1][index]);
           });
   
           desmarcarBtn.addEventListener('click', () => {
               var agendamentoDelete = data[2][index][0];
               window.location.href = `/Desmarcar/Exame/${agendamentoDelete}`;
-  
-              console.log(data[2][index][0]);
           });
   
           botoesContainer.appendChild(detalhesBtn);
@@ -205,6 +199,8 @@ else {
       }
 
       else{
+        console.log("exame - data agendada: ", exameData[4])
+        console.log("exame hoje: ", hojeFormatado)
         const novoAgendamento = document.createElement('div');
         novoAgendamento.classList.add('section-1');
       
@@ -231,14 +227,11 @@ else {
             var jsonString = JSON.stringify(info);
             localStorage.setItem('detalhesExame', jsonString);
             window.location.href = '/Detalhes/Exame/';
-            console.log(data[2][index]);
         });
       
         desmarcarBtn.addEventListener('click', () => {
             var agendamentoDelete = data[2][index][0];
             window.location.href = `/Desmarcar/Consulta/${agendamentoDelete}`;
-      
-            console.log(data[2][index][0]);
         });
       
         botoesContainer.appendChild(detalhesBtn);
@@ -415,5 +408,19 @@ function formatDate(date) {
   if (day < 10) {
       day = '0' + day;
   }
-  return year + '-' + month + '-' + day;
+  const formattedDateString = `${year}-${month}-${day}`;
+  return new Date(formattedDateString);
+}
+
+function convertToDate(dateString) {
+  const [day, month, year] = dateString.split('-');
+  const formattedDateString = `${year}-${month}-${day}`;
+  return new Date(formattedDateString);
+}
+
+
+function convertToDate2(dateString) {
+  const [year, month, day] = dateString.split('-');
+  const formattedDateString = `${year}-${month}-${day}`;
+  return new Date(formattedDateString);
 }
