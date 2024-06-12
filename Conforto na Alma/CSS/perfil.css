@@ -339,6 +339,7 @@ height: 120px;
         grid-template-rows: repeat(8, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
+        height: 1200px;
         }
 
 /* Grids da página*/

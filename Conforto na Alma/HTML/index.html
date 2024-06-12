@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="../CSS/stylehome.css">
+    <script src="../JS/home_js.js"></script>
 </head> 
 <!-- inicio do corpo -->
 <body>  
@@ -188,7 +189,11 @@
      </footer>
 
 
-
-     <script src="../JS/home_js.js"></script>
+     {% if loginFailed %}
+        <script>
+            loginFailed();
+        </script>
+    {% endif %}
+     
 </body>
 </html>

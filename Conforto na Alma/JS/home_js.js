@@ -1,3 +1,5 @@
+
+
 function exibirLogin() {
     fetch('http://localhost:8000/verificarLogin')
       .then(response => response.json())
@@ -35,3 +37,6 @@ function exibirLogin() {
     }
   });
   
+  function loginFailed() {
+    alert("Login falhou. Por favor, verifique seu email e senha.");
+}

@@ -151,6 +151,7 @@ else {
 
   data[2].forEach((exameData, index) => {
     dataConvertida = convertToDate2(exameData[4])
+    dataConvertida2 = convertToDate3(exameData[4])
       if (dataConvertida >= hojeFormatado) {
         console.log("exame - data agendada: ", dataConvertida)
         console.log("exame hoje: ", hojeFormatado)
@@ -160,7 +161,7 @@ else {
   
           const titulo = document.createElement('div');
           titulo.id = 'marcada';
-          titulo.textContent = exameData[3] + " - " + exameData[4];
+          titulo.textContent = exameData[3] + " - " + dataConvertida2;
   
           const dataParagrafo = document.createElement('p');
           dataParagrafo.textContent = '';
@@ -206,7 +207,7 @@ else {
       
         const titulo = document.createElement('div');
         titulo.id = 'marcada';
-        titulo.textContent = exameData[3] + " - " + exameData[4];
+        titulo.textContent = exameData[3] + " - " + dataConvertida2;
       
         const dataParagrafo = document.createElement('p');
         dataParagrafo.textContent = '';
@@ -423,4 +424,10 @@ function convertToDate2(dateString) {
   const [year, month, day] = dateString.split('-');
   const formattedDateString = `${year}-${month}-${day}`;
   return new Date(formattedDateString);
+}
+
+function convertToDate3(dateString) {
+  const [year, month, day] = dateString.split('-');
+  const formattedDateString = `${day}-${month}-${year}`;
+  return formattedDateString;
 }

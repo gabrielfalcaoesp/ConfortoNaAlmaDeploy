@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Form, APIRouter
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 import mysql.connector
 from fastapi.templating import Jinja2Templates
@@ -11,10 +12,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 db_connection = mysql.connector.connect(
-    host="server-cna.mysql.database.azure.com",
-    user="gabriel",
-    password="senai103@",
-    database="conforto_na_alma" 
+    host="localhost",
+    user="root",
+    password="1234",
+    database="conforto_na_alma",
 )
 db_cursor = db_connection.cursor()
 
@@ -127,9 +128,8 @@ async def login_cliente(
         global boolLogado
         boolLogado = usuarioExiste
         return templates.TemplateResponse("index.html", {"request": request, "boolLogado": boolLogado})
-        
-    else: 
-        return {"message": "Cliente não encontrado"}
+    else:
+        return templates.TemplateResponse("index.html", {"request": request, "loginFailed": True})
     
 @router.get("/verificarLogin")
 async def verificarLogin():
