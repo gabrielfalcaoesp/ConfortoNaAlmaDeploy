@@ -6,7 +6,9 @@ from fastapi.templating import Jinja2Templates
 from fastapi import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import RedirectResponse
+from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import JSONResponse
 
 
 
@@ -19,7 +21,7 @@ db_connection = mysql.connector.connect(
 )
 db_cursor = db_connection.cursor()
 
-boolLogado = ""
+boolLogadoMedico = ""
 id_usuario = ""
 
 class Medico(BaseModel):
@@ -132,52 +134,96 @@ async def login_cliente(
     db_cursor.execute(query, values)
     usuarioExiste = db_cursor.fetchone()
     if usuarioExiste:
-        global boolLogado
-        boolLogado = usuarioExiste
-        return "Message: Médico cadastrado"
+        global boolLogadoMedico
+        boolLogadoMedico = usuarioExiste
+        return RedirectResponse(url="/Medicos/Perfil/", status_code=302)
         
     else: 
         return {"message": "Cliente não encontrado"}
     
 @router_medico.get("/verificarLogin")
 async def verificarLogin():
-    global boolLogado
-    return boolLogado
+    global boolLogadoMedico
+    return boolLogadoMedico
 
-@router_medico.get("/Medicos/perfil/")
-async def get_medperfil(request: Request,):
-    return templates.TemplateResponse("perfil_medico.html", {"request": request})
+# @router_medico.get("/Medicos/perfil/")
+# async def get_medperfil(request: Request,):
+#     return templates.TemplateResponse("perfil_medico.html", {"request": request})
 
 @router_medico.get("/Medicos/Perfil/")
 async def exibirPerfil(request: Request):
-    global boolLogado
-    if boolLogado == "":
+    global boolLogadoMedico
+    if boolLogadoMedico == "":
         return "Message: cliente não está logado"
     return templates.TemplateResponse("perfil_medico.html", {"request": request})
 
 
 @router_medico.post("/Medicos/Perfil/")
 async def getInfoCliente():
-    global boolLogado
+    global boolLogadoMedico
     db_connection.reconnect()
-    if boolLogado == "":
+    if boolLogadoMedico == "":
         return "Message: médico não está logado"
     else:
         query = "SELECT * FROM medico WHERE id_medico = %s"
-        values = (boolLogado)
+        values = (boolLogadoMedico)
         db_cursor.execute(query, values)
         infoCliente = db_cursor.fetchone()
 
         queryAgendamentos = "SELECT * FROM agendamento_consulta WHERE id_medico = %s"
-        values = (boolLogado)
+        values = (boolLogadoMedico)
         db_cursor.execute(queryAgendamentos, values)
         agendamentosCliente = db_cursor.fetchall()
 
 
         queryExames = "SELECT * FROM agendamento_exame WHERE id_medico = %s"
-        values = (boolLogado)
+        values = (boolLogadoMedico)
         db_cursor.execute(queryExames, values)
         examesCliente = db_cursor.fetchall()
 
         return infoCliente, agendamentosCliente, examesCliente
 
+
+
+@router_medico.get("/Medicos/Detalhes/Consulta/")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("agendamento_detalhes_medico.html", {"request": request})
+
+@router_medico.get("/Medicos/Detalhes/Exame/")
+async def get_detalhes(request: Request):
+    return templates.TemplateResponse("exame_detalhes_medico.html", {"request": request})
+
+@router_medico.post("/Medicos/Agendamentos/Detalhes/")
+async def getInfoDetailsAgendamento(request: Request):
+    data = await request.json()
+    id_agendamento_consulta = data.get('id_agendamento_consulta')
+
+    db_connection.reconnect()
+    query = """
+        SELECT cliente.nome AS nome_cliente, agendamento_consulta.id_cliente AS id_cliente
+        FROM agendamento_consulta
+        INNER JOIN cliente ON agendamento_consulta.id_cliente = cliente.id_cliente
+        WHERE agendamento_consulta.id_agendamento_consulta = %s
+    """
+    db_cursor.execute(query, (id_agendamento_consulta,))
+    infoConsulta = db_cursor.fetchone()
+
+    return infoConsulta
+
+
+@router_medico.post("/Medicos/Exames/Detalhes/")
+async def getInfoDetailsAgendamento(request: Request):
+    data = await request.json()
+    id_agendamento_consulta = data.get('id_agendamento_consulta')
+
+    db_connection.reconnect()
+    query = """
+        SELECT cliente.nome AS nome_cliente, agendamento_exame.id_cliente AS id_cliente
+        FROM agendamento_exame
+        INNER JOIN cliente ON agendamento_exame.id_cliente = cliente.id_cliente
+        WHERE agendamento_exame.id_agendamento_exame = %s
+    """
+    db_cursor.execute(query, (id_agendamento_consulta,))
+    infoConsulta = db_cursor.fetchone()
+
+    return infoConsulta

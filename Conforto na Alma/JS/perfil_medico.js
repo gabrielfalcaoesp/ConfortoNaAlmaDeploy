@@ -1,4 +1,4 @@
-const url = '/Clientes/Perfil/';
+const url = '/Medicos/Perfil/';
 const agendamentosContainer = document.getElementById('agendamentosCliente');
 
 
@@ -20,24 +20,26 @@ fetch(url, options)
     const nome = document.querySelector('h1.nome');
     nome.textContent = data[0][1]; // Supondo que o nome esteja na primeira posição de infoCliente
 
+    
     const idade = document.querySelector('td.idade');
     idadeUsuario = calcularIdade(data[0][2]); // Supondo que a data de nascimento esteja na segunda posição de infoCliente
+    console.log(idadeUsuario)
     idade.textContent = "Idade: " + idadeUsuario + ' anos';
 
-    const cpf = document.querySelector('td.cpf');
-    cpf.textContent = "CPF: " + data[0][4]; // Supondo que o CPF esteja na quarta posição de infoCliente
+    const cpf = document.querySelector('td.CRM');
+    cpf.textContent = "CRM: " + data[0][3]; // Supondo que o CPF esteja na quarta posição de infoCliente
 
     const email = document.getElementById('mailValue')
-    email.textContent = data[0][5]; // Supondo que o email esteja na quinta posição de infoCliente
+    email.textContent = data[0][7]; // Supondo que o email esteja na quinta posição de infoCliente
 
     const telefone = document.getElementById('telValue')
-    telefone.textContent = data[0][6]; // Supondo que o telefone esteja na sexta posição de infoCliente
+    telefone.textContent = data[0][8]; // Supondo que o telefone esteja na sexta posição de infoCliente
 
     const cep = document.getElementById('cepValue')
-    cep.textContent = data[0][7]; // Supondo que o CEP esteja na sétima posição de infoCliente
+    cep.textContent = data[0][9]; // Supondo que o CEP esteja na sétima posição de infoCliente
 
     const endereco = document.getElementById('endValue')
-    endereco.textContent = data[0][11]; // Supondo que o endereço esteja na décima segunda posição de infoCliente
+    endereco.textContent = data[0][13]; // Supondo que o endereço esteja na décima segunda posição de infoCliente
 
     const hoje = new Date(); // Obtém a data atual
     const hojeFormatado = formatDate(hoje); 
@@ -70,7 +72,7 @@ fetch(url, options)
         var info = data[1][index];
         var jsonString = JSON.stringify(info);
         localStorage.setItem('detalhesAgendamento', jsonString);
-        window.location.href = '/Detalhes/Consulta/';
+        window.location.href = '/Medicos/Detalhes/Consulta/';
         console.log(data[1][index]); 
     });
 
@@ -181,7 +183,7 @@ else {
               var info = data[2][index];
               var jsonString = JSON.stringify(info);
               localStorage.setItem('detalhesExame', jsonString);
-              window.location.href = '/Detalhes/Exame/';
+              window.location.href = '/Medicos/Detalhes/Exame/';
           });
   
           desmarcarBtn.addEventListener('click', () => {
