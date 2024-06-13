@@ -25,6 +25,8 @@ var especialidadeArmazenado = localStorage.getItem('exame');
 
 
 var dataSelecionada = localStorage.getItem("dataEscolhida");
+var newData = exibirData(dataSelecionada);
+console.log("newData: ", newData)
 
 if (dataSelecionada) {
     exibirData(dataSelecionada);
@@ -67,6 +69,7 @@ function exibirData(dataSelecionada) {
         dataSelecionada = `${dia < 10 ? '0' + dia : dia}-${mes < 10 ? '0' + mes : mes}-${ano}`;
     }
     document.getElementById('dataSalva').innerText = dataSelecionada;
+    return dataSelecionada
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -101,7 +104,7 @@ function enviarAgendamento() {
         id_cliente: id_usuario,
         id_medico: id_medico,
         tipo_exame: especialidadeArmazenado,
-        data_agendada: dataSelecionada,
+        data_agendada: newData,
         data_agendamento: dataDeHoje,
         horario_consulta: horaSelecionada,
         unidade: nomeArmazenado

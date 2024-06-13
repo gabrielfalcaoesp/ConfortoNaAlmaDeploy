@@ -51,6 +51,13 @@ async def get_profissional(request: Request):
 async def get_profissional(request: Request):
     return templates.TemplateResponse("agendamento_confirmacao.html", {"request": request})
 
+@router_consulta.get("/Agendamento/Confirmacao")
+async def get_profissional(request: Request):
+    return templates.TemplateResponse("agendamento_confirmacao.html", {"request": request})
+
+@router_consulta.get("/Agendamento/Confirmado")
+async def get_profissional(request: Request):
+    return templates.TemplateResponse("clienteAgendado.html", {"request": request})
 
 @router_consulta.get("/Agendamento/pagamento/{metodo_pagamento}")
 async def get_pagamento(request: Request, metodo_pagamento: str):
